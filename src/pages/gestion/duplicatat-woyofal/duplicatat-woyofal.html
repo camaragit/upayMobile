@@ -1,0 +1,63 @@
+<!--
+  Generated template for the DuplicatatWoyofalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+<ion-content>
+<header-title></header-title>
+  <div class="im-wrapper p-container p-container-view">
+    <form class="list form" name="formdup" *ngIf="!glb.showRecu" [formGroup]="critereForm">
+      <fieldset>
+        <legend>Demande</legend>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date debut</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" formControlName="datedebut" (ionChange)="changedatedeb()" doneText="Choisir" cancelText="Annuler" ></ion-datetime>
+        </ion-item>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date Fin</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" formControlName="datefin" doneText="Choisir" (ionChange)="changefin()" cancelText="Annuler" [min]="minDate"></ion-datetime>
+        </ion-item>
+        <div class="field" style="margin-top: 20px">
+          <input type="tel" formControlName="compteur" (input)="changefin()" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="nomret" placeholder="Numéro compteur">
+          <label for="nomret" style="width: 100% !important;">Numéro compteur</label>
+        </div>
+      </fieldset>
+      <br>
+      <button (click)="rechercher()" [disabled]="critereForm.invalid"  class="p-btn p-btn-vert button button-small right-buttons" data-ink-color="#ffc000">
+        Rechercher
+      </button>
+      <br><br>
+      <div class="p-span-tab p-span-tab-4-1" *ngIf="showdetails">
+        <div class="button-bar">
+          <span class="p-span-tab-th">N° Compteur</span>
+          <span class="p-span-tab-th">Date</span>
+          <span class="p-span-tab-th">Client</span>
+          <span class="p-span-tab-th">Montant</span>
+          <span class="p-span-tab-ckb p-btn-jaune"><i class="ion ion-ios-checkmark-circle"></i></span>
+        </div>
+        <div class="button-bar" *ngFor="let trx of transactions">
+          <span class="p-span-tab-td">{{ trx.Compteur }}</span>
+          <span class="p-span-tab-td">{{ trx.Date }}</span>
+          <span class="p-span-tab-td">{{ trx.Client }}</span>
+          <span class="p-span-tab-td">{{ trx.Montant | millier }}</span>
+          <span class="p-span-tab-ckb"><label class="p-label-checkbox checkbox"><input  class="p-checkbox" type="checkbox"  [checked]="transactions[trx.id].checked" (click)="handlechecking(trx)" ></label></span>
+        </div>
+
+        <br>
+        <button  (click)="afficherrecu()" [disabled]="!voirRecu" class="p-btn p-btn-jaune button button-small right-buttons">
+          Voir reçu
+        </button>
+      </div>
+      <br>
+    </form>
+    <div *ngIf="glb.showRecu==true">
+      <recu-woyofal></recu-woyofal>
+    </div>
+  </div>
+
+  <scroll></scroll>
+</ion-content>

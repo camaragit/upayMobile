@@ -1,0 +1,13 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+  <header-title></header-title>
+  <div class="p-service p-box padding">
+    <a *ngFor="let mn of monnaies" (click)="verspage(mn.component)">
+      <img class="p-service-img expresso" [src]="mn.img" [alt]="mn.service">
+    </a>
+  </div>
+  <scroll></scroll>
+</ion-content>

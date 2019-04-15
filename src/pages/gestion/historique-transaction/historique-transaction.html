@@ -1,0 +1,95 @@
+<!--
+  Generated template for the HistoriqueTransactionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+<header-title></header-title>
+  <div class="im-wrapper p-container-view">
+
+    <h3>Historique Transaction</h3>
+    <form class="list form" [formGroup]="criterForm">
+      <fieldset>
+        <legend>Informations</legend>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date debut</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" doneText="Choisir" (ionChange)="changedatedeb()" cancelText="Annuler" formControlName="date1"></ion-datetime>
+        </ion-item>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date Fin</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" doneText="Choisir" (ionChange)="changefin()" cancelText="Annuler" formControlName="date2"></ion-datetime>
+
+        </ion-item>
+        <br>
+        <div class="button-bar">
+          <button (click)="listerhisto('all')" [disabled]="criterForm.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+            Afficher
+          </button>
+          <button (click)="listerhisto('last')" [disabled]="criterForm.invalid" class="p-btn p-btn-jaune button button-small left-buttons">
+            Dernieres Trx
+          </button>
+        </div>
+
+      </fieldset>
+
+<div *ngIf="showdetails">
+  <div *ngIf="all">
+    <div class="p-span-tab p-span-tab-3-0">
+      <div class="button-bar">
+        <span class="p-span-tab-th">Operateur</span>
+        <span class="p-span-tab-th">Nbr Trx</span>
+        <span class="p-span-tab-th">Montant</span>
+
+      </div>
+      <div class="button-bar" *ngFor="let trx of transactions">
+        <span class="p-span-tab-td">{{trx.Oper }}__{{trx.Type}}</span>
+        <span class="p-span-tab-td">{{ trx.Nombre }}</span>
+        <span class="p-span-tab-td">{{ trx.Montant |millier }}</span>
+
+      </div>
+    </div>
+    <br>
+    <button (click)="imprimer()" class="p-btn p-btn-vert button button-small right-buttons" data-ink-color="#ffc000">
+      imprimer
+    </button>
+  </div>
+  <br>
+  <br>
+  <div *ngIf="!all">
+
+    <div class="p-span-tab p-span-tab-3-0">
+      <div class="button-bar">
+        <span class="p-span-tab-th">Date Oper</span>
+        <span class="p-span-tab-th">Operateur</span>
+        <span class="p-span-tab-th">Montant</span>
+        <span  class="p-span-tab-th" *ngIf="existewoyofal==true">N° Compteur</span>
+        <span  class="p-span-tab-th">N° Tel</span>
+
+      </div>
+      <div class="button-bar" *ngFor="let trx of transactions">
+        <span class="p-span-tab-td">{{trx.Dtrx}}</span>
+        <span class="p-span-tab-td">{{trx.Oper}}</span>
+        <span class="p-span-tab-td">{{trx.Mnt|millier}}</span>
+        <span  class="p-span-tab-td" *ngIf="existewoyofal==true">{{trx.IdDes}}</span>
+        <span  class="p-span-tab-td">{{trx.Numc}}</span>
+
+      </div>
+    </div>
+    <br>
+    <button (click)="imprimer()" class="p-btn p-btn-vert button button-small right-buttons" data-ink-color="#ffc000">
+      imprimer
+    </button>
+  </div>
+</div>
+
+    </form>
+
+  </div>
+  <scroll></scroll>
+</ion-content>

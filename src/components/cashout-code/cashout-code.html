@@ -1,0 +1,73 @@
+<!-- Reception bobo -->
+<div ng-if="denvoi.demandeSelect == 'Reception'">
+  <div >
+    <form class="list form" [formGroup]="cashoutForm" >
+      <fieldset>
+        <legend>Releve</legend>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (input)="reset()" formControlName="codeclient" id="codetrans" placeholder="Code de Transfert">
+          <label for="codetrans" style="width: 100% !important;">Code de Transfert</label>
+        </div>
+
+        <div class="p-button-group">
+          <button  (click)="releve()" class="p-btn p-btn-jaune button button-small right-buttons" [disabled]="cashoutForm.controls.codeclient.invalid">
+            Afficher
+          </button>
+          <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset();showdetails=false;">
+            Réinitialiser
+          </button>
+        </div>
+      </fieldset>
+
+      <!-- info expediteur -->
+      <div *ngIf="showdetails">
+        <!-- Info bénéficiaire -->
+        <fieldset>
+          <legend>Infos bénéficiaire</legend>
+          <div class="field">
+            <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="prenomBen" readonly id="pnomben" placeholder="Numéro de police">
+            <label for="pnomben" style="width: 100% !important;">Prénom</label>
+          </div>
+          <div class="field">
+            <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="nomBen" readonly id="nomben" placeholder="Numéro de police">
+            <label for="nomben" style="width: 100% !important;">Nom</label>
+          </div>
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" formControlName="telBen" name="fullname" readonly id="telben" placeholder="Numéro de police">
+            <label for="telben" style="width: 100% !important;">Telephone</label>
+          </div>
+
+          <div class="field">
+            <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" readonly formControlName="montant" id="adresseben" placeholder="Montant">
+            <label for="adresseben" style="width: 100% !important;">Montant</label>
+          </div>
+          <div class="field" *ngIf="datareception.oper=='0057'">
+            <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" formControlName="codevalidation" name="fullname"  id="securecode" placeholder="Montant">
+            <label for="securecode" style="width: 100% !important;">Code de Sécurité</label>
+          </div>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px " >
+            <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type pièce</ion-label>
+            <ion-select formControlName="typIdBen" interface="popover">
+              <ion-option value="1">CNI</ion-option>
+              <ion-option value="2" >Passport</ion-option>
+            </ion-select>
+          </ion-item>
+          <div class="field" style="margin-top:25px;">
+            <input type="text" style="border: none;  border-bottom: 2px solid #fd971f; width: 100% !important;" formControlName="idBen" name="fullname" id="pieceben" placeholder="Numéro de police">
+            <label for="pieceben" style="width: 100% !important;">Num pièce</label>
+          </div>
+
+          <div class="p-button-group">
+            <button (click)="validerReception()"  class="p-btn p-btn-vert button button-small right-buttons">
+              Payer
+            </button>
+            <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset();showdetails=false;">
+              Réinitialiser
+            </button>
+          </div>
+        </fieldset>
+      </div>
+
+    </form>
+  </div>
+</div>

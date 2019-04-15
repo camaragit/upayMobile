@@ -1,0 +1,127 @@
+<!-- Reception bobo -->
+<div ng-if="denvoi.demandeSelect == 'Reception'">
+  <div >
+    <form class="list form" [formGroup]="cashoutForm" >
+    <fieldset>
+      <legend>Releve</legend>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (input)="reset()" formControlName="codTrans" id="codetrans" placeholder="Code de Transfert">
+        <label for="codetrans" style="width: 100% !important;">Code de Transfert</label>
+      </div>
+
+      <div class="p-button-group">
+        <button  (click)="releve()" class="p-btn p-btn-jaune button button-small right-buttons" [disabled]="cashoutForm.controls.codTrans.invalid">
+          Afficher
+        </button>
+        <button class="p-btn p-btn-gris button button-small right-buttons" (click)="vider()">
+          Réinitialiser
+        </button>
+      </div>
+    </fieldset>
+
+  <!-- info expediteur -->
+  <div >
+    <fieldset>
+      <legend>Infos expediteur</legend>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pnome" formControlName="prenomExp" placeholder="Prénom">
+        <label for="pnome" style="width: 100% !important;">Prénom</label>
+      </div>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="nomExp" id="nome" placeholder="Nom">
+        <label for="nome" style="width: 100% !important;">Nom</label>
+      </div>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="adressee" placeholder="Adresse">
+        <label for="adressee" style="width: 100% !important;">Adresse</label>
+      </div>
+      <div class="field">
+        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="tele" formControlName="telExp" placeholder="Telephone">
+        <label for="tele" style="width: 100% !important;">Telephone</label>
+      </div>
+      <div *ngIf="datareception.oper=='0080'">
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="paysenv" placeholder="Adresse">
+          <label for="paysenv" style="width: 100% !important;">Pays Naissance</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="motifenv" placeholder="Motif envoi">
+          <label for="motifenv" style="width: 100% !important;">Motif envoi</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="numpiece" placeholder="Num piece">
+          <label for="numpiece" style="width: 100% !important;">Num piece</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="datedeliv" placeholder="Date delivrance">
+          <label for="datedeliv" style="width: 100% !important;">Date delivrance</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="adrsExp" id="dateexp" placeholder="Date expiration">
+          <label for="dateexp" style="width: 100% !important;">Date expiration</label>
+        </div>
+      </div>
+
+
+
+    </fieldset>
+    <!-- Info bénéficiaire -->
+    <fieldset>
+      <legend>Infos bénéficiaire</legend>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="mntpaie" formControlName="mntPaie" placeholder="Montant" readonly>
+        <label for="pnomben" style="width: 100% !important;">Montant</label>
+      </div>
+      <div class="field">
+        <input readonly type="text" formControlName="prenomBen" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pnomben" placeholder="Prénom">
+        <label for="pnomben" style="width: 100% !important;">Prénom</label>
+      </div>
+      <div class="field">
+        <input type="text" formControlName="nomBen" readonly style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="nomben" placeholder="Nom">
+        <label for="nomben" style="width: 100% !important;">Nom</label>
+      </div>
+      <div class="field">
+        <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" formControlName="adrsBen" name="fullname" readonly id="adresseben" placeholder="Adresse">
+        <label for="adresseben" style="width: 100% !important;">Adresse</label>
+      </div>
+      <div class="field">
+        <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="telBen" readonly  id="telben" placeholder="Téléphone">
+        <label for="telben" style="width: 100% !important;">Téléphone</label>
+      </div>
+      <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+        <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type pièce</ion-label>
+        <ion-select  formControlName="typIdBen" interface="popover" >
+          <ion-option value="1" >CNI</ion-option>
+          <ion-option value="2">Passport</ion-option>
+          <ion-option value="3">Permis</ion-option>
+        </ion-select>
+      </ion-item>
+      <div class="field" style="margin-top:20px;">
+        <input type="text" style="border: none;  border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="idBen" id="pieceben" placeholder="Num pièce">
+        <label for="pieceben" style="width: 100% !important;">Num pièce</label>
+      </div>
+      <div *ngIf="datareception.oper=='0080'" style="margin-bottom: 20px">
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date Delivrance</ion-label>
+          <ion-datetime displayFormat="DD-MM-YYYY" doneText="Choisir" cancelText="Annuler" ></ion-datetime>
+        </ion-item>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date expiration</ion-label>
+          <ion-datetime displayFormat="DD-MM-YYYY" doneText="Choisir"  cancelText="Annuler" ></ion-datetime>
+        </ion-item>
+
+      </div>
+
+      <div class="p-button-group">
+        <button (click)="validerReception()" [disabled]="cashoutForm.controls.idBen.invalid" class="p-btn p-btn-vert button button-small right-buttons">
+          Payer
+        </button>
+        <button class="p-btn p-btn-gris button button-small right-buttons" (click)="vider()">
+          Réinitialiser
+        </button>
+      </div>
+    </fieldset>
+  </div>
+  </form>
+  </div>
+</div>

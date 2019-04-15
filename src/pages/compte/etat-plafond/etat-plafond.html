@@ -1,0 +1,32 @@
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+<ion-content>
+  <header-title></header-title>
+  <div class="p-container">
+    <div class="im-wrapper p-container-view">
+      <!--<p class="p-img-top logo-etatplafond"></p>-->
+      <form class="form list">
+
+        <div class="p-span-tab p-span-tab-3-0">
+          <div class="button-bar">
+            <span class="p-span-tab-th">plafond Actuel</span>
+            <span class="p-span-tab-th">consomme</span>
+            <span class="p-span-tab-th">compte</span>
+          </div>
+          <div class="button-bar">
+            <span class="p-span-tab-td">{{glb.HEADER.montant}}</span>
+            <span class="p-span-tab-td">{{glb.HEADER.consomme}}</span>
+            <span class="p-span-tab-td">{{glb.HEADER.numcompte}}</span>
+          </div>
+        </div>
+
+
+        <br>
+        <button (click)="imprimer()" class="p-btn p-btn-jaune button button-small right-buttons">
+          imprimer
+        </button>
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,73 @@
+
+<ion-content padding>
+
+  <div class="p-view-connexion list padding">
+    <div class="p-translate">
+      <span class="p-translate-fr" ng-click="changeLanguage('fr')">Français</span>
+      <span class="p-translate-en" ng-click="changeLanguage('en')">Anglais</span >
+
+    </div>
+    <br>
+    <img class="p-img p-img-connexion" src="assets/imgs/proximo.png" alt="logo">
+ <!--    <ion-card  padding="" style="border-radius: 10px; ">
+      <ion-list>
+        <ion-item no-lines="">
+          <ion-icon color="proximo" item-left="" style="margin-right: -10px !important;" name="ios-print-outline" ></ion-icon>
+          <ion-label class="card-subtitle" style="font-size: 13px !important;">Recherche Imprimante</ion-label>
+          <ion-toggle style="margin-right: -20px;" [(ngModel)]="glb.statusImpriamte" (ionChange)="chercherimprimante()"></ion-toggle>
+        </ion-item>
+        <p style="color: #d50000;" *ngIf="glb.notfound">{{glb.message}}</p>
+        <div *ngIf="!glb.notfound">
+          <ion-list radio-group [(ngModel)]="selectedImp">
+            <ion-item no-lines="" *ngFor="let imp of glb.listeImprimantes;">
+              <ion-label>{{ imp.name }}</ion-label>
+              <ion-radio [value]="imp" ></ion-radio>
+            </ion-item>
+          </ion-list>
+          <ion-buttons end="" >
+            <button *ngIf="!glb.notfound" small ion-button icon-end style="text-transform: none" [disabled]="!selectedImp" color="proximo" (click)="lier()">
+              <span >Lier
+                <ion-icon name="ios-bluetooth-outline"></ion-icon>
+             </span>
+            </button>
+          </ion-buttons>
+        </div>
+
+
+      </ion-list>
+    </ion-card> -->
+
+    <div padding="">
+      <form [formGroup]="Userdata">
+        <div style="background-color: transparent !important;">
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="login" formControlName="login"  (change)="lowercase()" placeholder="Identifiant">
+            <label for="login" style="width: 100% !important;">Login</label>
+          </div>
+          <div class="field">
+            <input [type]="type"  formControlName="password" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="Motdp" placeholder="Mot de passe">
+            <label for="Motdp" style="width: 100% !important;">Mot de passe</label>
+          </div>
+        </div>
+        <ion-icon color="proximo" style="float: right;"  (click)="affichemdp()"  name="md-eye"></ion-icon>
+
+        <ion-buttons end=""  >
+
+          <button color="proximo" round ion-button icon-only icon-end small outline round style="border: none;" (click)="affichemdp()">
+      <span (click)="affichemdp()">
+        <ion-icon name="md-eye"></ion-icon>
+       </span>
+          </button>
+        </ion-buttons>
+        <div>
+          <button  [disabled]="!Userdata.valid"  (click)="connecter()" class="p-btn p-btn-jaune button button-small button-block" style="margin-top: 40px">Connexion</button>
+
+
+        </div>
+      </form>
+      <p style="text-decoration: underline; text-align: center; margin-top: 20px; ">Mot de passe oublié ?</p>
+
+    </div>
+  </div>
+  <scroll></scroll>
+</ion-content>

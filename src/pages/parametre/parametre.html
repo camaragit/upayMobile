@@ -1,0 +1,14 @@
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+  <header-title></header-title>
+
+  <div class="p-box padding">
+    <a *ngFor="let param of listeparametres" (click)="verspage(param.component)">
+      <img class="p-service-img expresso" [src]="param.img" [alt]="param.service">
+      <span class="p-box-title">{{param.title}}</span>
+    </a>
+  </div>
+  <scroll></scroll>
+</ion-content>

@@ -1,0 +1,85 @@
+<!--
+  Generated template for the EncWoyofalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+<ion-content >
+  <div class="p-container">
+    <header-title></header-title>
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-woyofal1"></p>
+      <form class="list form" *ngIf="!glb.showRecu" [formGroup]="clientForm" >
+        <fieldset>
+          <legend>Releve</legend>
+          <div class="field">
+            <input type="tel" (input)="vider()" formControlName="numcompteur" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" id="fullname"   placeholder="Numéro Compteur">
+            <label for="fullname" style="width: 100% !important;">Numéro Compteur</label>
+          </div>
+
+          <div class="p-button-group">
+            <button  (click)="releve()" [disabled]="clientForm.controls.numcompteur.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+              afficher
+            </button>
+            <button class="p-btn p-btn-jaune p-btn-gris button button-small right-buttons" (click)="clientForm.controls['numcompteur'].setValue('');vider();">
+              Réinitialiser
+            </button>
+          </div>
+          <div *ngIf="showdetails">
+           <br>
+            <br>
+            <div *ngIf="newclient">
+              <ion-label >(*) : Champ obligatoire</ion-label>
+
+              <div class="field">
+                <input type="text" formControlName="nomclient" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" id="nomclient"   placeholder="(*) Nom Client">
+                <label for="nomclient" style="width: 100% !important;">(*) Nom Client</label>
+              </div>
+
+              <div class="field">
+                <input type="text" formControlName="telephone" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" id="phone"   placeholder="(*) Téléphone">
+                <label for="phone" style="width: 100% !important;">(*) Téléphone</label>
+              </div>
+              <div class="field">
+                <input type="text" formControlName="adrsClient" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" id="adresse"   placeholder="(*) Adresse">
+                <label for="adresse" style="width: 100% !important;">(*) Adresse</label>
+              </div>
+            </div>
+            <!-- Encaissement -->
+            <div *ngIf="!newclient">
+
+              <div class="proxi-releve">
+                <hr>
+                <span class="titre">Client </span><strong>:</strong> <span class="info">{{client.NomClient}}</span><br>
+                <span class="titre">Téléphone </span><strong>:</strong> <span class="info">{{client.telClient}} </span><br>
+                <span class="titre">Adresse </span><strong>:</strong> <span class="info">{{client.adrsClient}}</span><br>
+                <span class="titre">Compteur </span><strong>:</strong> <span class="info">{{client.IdClient}}</span><br>
+                <hr>
+              </div>
+
+            </div>
+            <!-- montant -->
+            <div class="field">
+              <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" id="montant" (blur)="changemontant()" formControlName="mnttotal"  placeholder="Montant">
+              <label for="montant" style="width: 100% !important;">Montant</label>
+            </div>
+
+            <div class="p-group-button">
+              <button (click)="encaisser()" [disabled]="clientForm.invalid" class="p-btn p-btn-vert button button-small button-jaune right-buttons">Encaisser</button>
+              <button   (click)="clientForm.controls['numcompteur'].setValue('');vider();"  class="p-btn p-btn-red button button-small button-jaune">Réinitialiser</button>
+            </div>
+          </div>
+        </fieldset>
+
+      </form>
+      <div *ngIf="glb.showRecu">
+        <recu-woyofal></recu-woyofal>
+
+      </div>
+    </div>
+  </div>
+  <scroll></scroll>
+</ion-content>

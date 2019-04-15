@@ -1,0 +1,43 @@
+<form class="list form" name="formrecharge" [formGroup]="cashoutForm" >
+  <fieldset>
+    <legend>Initialisation</legend>
+    <div class="field">
+      <input type="tel" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" formControlName="telephone" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="tel" placeholder="Telephone">
+      <label for="tel" style="width: 100% !important;">Telephone</label>
+    </div>
+    <div class="field">
+      <input type="tel" (blur)="changemontant()" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;"  formControlName="montant" name="fullname" id="mnt" placeholder="Montant">
+      <label for="mnt" style="width: 100% !important;">Montant</label>
+    </div>
+
+    <div class="p-button-group">
+      <button  (click)="initierCashout()" [disabled]=" (cashoutForm.controls.telephone.valid && cashoutForm.controls['telephone'].value.length<12) || (cashoutForm.controls.montant.valid && cashoutForm.controls['montant'].value<=0)" class="p-btn p-btn-jaune button button-small right-buttons">
+        Initier
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset()">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+  <br><br>
+  <fieldset>
+    <legend>Validation</legend>
+    <div class="field">
+      <input type="tel" (input)="changetelp()" (blur)="blurtelp()"  (focus)="focustelp()" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname"  formControlName="telephonep" id="telben" placeholder="Telephone">
+      <label for="telben" style="width: 100% !important;">Telephone</label>
+    </div>
+    <div class="field">
+      <input (blur)="changemontantp()" type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname"formControlName="montantp" id="adresseben" placeholder="Montant">
+      <label for="adresseben" style="width: 100% !important;">Montant</label>
+    </div>
+
+    <div class="p-button-group">
+      <button  (click)="validerCashout()" [disabled]="(cashoutForm.controls.telephonep.valid && cashoutForm.controls['telephonep'].value.length<12) || (cashoutForm.controls.montantp.valid && cashoutForm.controls['montantp'].value<=0)|| !click" class="p-btn p-btn-vert button button-small right-buttons">
+        Payer
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset()">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+</form>

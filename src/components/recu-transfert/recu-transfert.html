@@ -1,0 +1,111 @@
+<!-- Reçu Envoi/Reception Ria -->
+<div class="p-recu padding" style="margin-top: -30px;">
+  <div align="left" class="col col-100">
+    <!--  -->
+    <div class="p-recu-content">
+      <div class="p-recu-title">Proximo</div>
+      <p class="p-recu-lib">{{ glb.recu.operation }} {{glb.recu.operateur}}</p><p> </p>
+      <div class="p-recu-title">Copie Client</div>
+      <p class="p-recu-lib">Date</p><p>:  {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}}  </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}}  </p><br>
+      <div *ngIf="glb.recu.operateur=='Joni-Joni'">
+        <p class="p-recu-lib">Banque Agent</p><p>: BIMAO </p><br></div>
+      <div *ngIf="glb.recu.operateur=='ProxiCash'">
+        <p class="p-recu-lib">Banque agent</p><p>: BASN </p><br></div>
+      <hr>
+      <p class="p-recu-lib">EXPIDITEUR</p><p>  </p>
+      <div *ngIf="glb.recu.duplicat">
+        <p class="p-recu-lib">Nom</p><p>: {{glb.recu.nomexpe}} </p><br>
+
+      </div>
+      <div *ngIf="!glb.recu.duplicat">
+        <p class="p-recu-lib">Nom</p><p>: {{glb.recu.prenomExp}}  {{glb.recu.nomExp}} </p><br></div>
+      <div *ngIf="glb.recu.operation == 'ENVOI' && !glb.recu.duplicat">
+        <p class="p-recu-lib">Adr</p><p>:{{glb.recu.adrsExp}}  </p><br>
+      </div>
+      <p class="p-recu-lib">Tel</p><p>:{{glb.recu.telExp}}  </p><br>
+
+      <hr>
+      <p class="p-recu-lib">BENEFICIAIRE</p><p>  </p>
+      <div *ngIf="!glb.recu.duplicat">
+        <p class="p-recu-lib">Nom </p><p>:{{glb.recu.prenomBen}} {{glb.recu.nomBen}}  </p></div>
+      <div *ngIf="glb.recu.duplicat">
+        <p class="p-recu-lib">Nom</p><p>: {{glb.recu.nombenef}} </p><br>
+
+      </div>
+      <div *ngIf="glb.recu.operation == 'RECEPTION' && !glb.recu.duplicat">
+        <p class="p-recu-lib">Adr</p><p>: {{glb.recu.adrsBen}} </p><br>
+      </div>
+      <p class="p-recu-lib">Tel </p><p>: {{glb.recu.telBen}} </p><br>
+      <hr>
+      <p class="p-recu-lib">Code</p><p>: [{{glb.recu.codTrans}}] </p><br>
+      <div *ngIf="glb.recu.operation == 'ENVOI'">
+        <div *ngIf="!glb.recu.duplicat">
+          <p class="p-recu-lib">Mont HF </p><p>:{{glb.recu.mntEnv|millier}} </p>
+          <p class="p-recu-lib">Frais </p><p>: {{glb.recu.mntFrais|millier}} </p>
+          <p class="p-recu-lib">Mont TTC </p><p>: {{glb.recu.mntTotal|millier}}  </p>
+        </div>
+        <div *ngIf="glb.recu.duplicat">
+          <p class="p-recu-lib">Mont TTC </p><p>: {{glb.recu.montant|millier}}  </p>
+        </div>
+      </div>
+
+      <span>&lt;Generat(e) Client(e)&gt;</span><br><br>
+      <span>Proximo vous remercie</span><br>
+      <span>&lt;Plus d'info au 33 869 31 22&gt;</span><br><br>
+      <hr style="margin-bottom: -5px;"><hr><br>
+      <!-- Copie reception -->
+      <p class="p-recu-lib">Copie Agence</p><p> </p>
+      <p class="p-recu-lib">Date</p><p>:  {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}}  </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}}  </p><br>
+      <div *ngIf="glb.recu.operateur=='Joni-Joni'">
+        <p class="p-recu-lib">Banque Agent</p><p>: BIMAO </p><br></div>
+      <div *ngIf="glb.recu.operateur=='ProxiCash'">
+        <p class="p-recu-lib">Banque agent</p><p>: BASN </p><br></div>
+      <hr>
+      <p class="p-recu-lib">EXPIDITEUR</p><p>  </p>
+      <div *ngIf="!glb.recu.duplicat">
+        <p class="p-recu-lib">Nom</p><p>: {{glb.recu.prenomExp}}  {{glb.recu.nomExp}} </p><br></div>
+      <div *ngIf="glb.recu.operation == 'ENVOI' && !glb.recu.duplicat">
+        <p class="p-recu-lib">Adr</p><p>:{{glb.recu.adrsExp}}  </p><br>
+      </div>
+      <p class="p-recu-lib">Tel</p><p>:{{glb.recu.telExp}}  </p><br>
+      <hr>
+      <p class="p-recu-lib">BENEFICIAIRE</p><p>  </p>
+      <div *ngIf="!glb.recu.duplicat">
+        <p class="p-recu-lib">Nom </p><p>:{{glb.recu.prenomBen}} {{glb.recu.nomBen}}  </p></div>
+      <div *ngIf="glb.recu.duplicat">
+        <p class="p-recu-lib">Nom</p><p>: {{glb.recu.nombenef}} </p><br>
+
+      </div>
+      <div *ngIf="glb.recu.operation == 'RECEPTION' && !glb.recu.duplicat">
+        <p class="p-recu-lib">Adr</p><p>: {{glb.recu.adrsBen}} </p><br>
+      </div>
+      <p class="p-recu-lib">Tel </p><p>: {{glb.recu.telBen}} </p><br>
+      <hr>
+      <p class="p-recu-lib">Code</p><p>: [{{glb.recu.codTrans}}] </p><br>
+      <div *ngIf="operation == 'ENVOI' && !glb.recu.duplicat">
+        <p class="p-recu-lib">Mont HF </p><p>:{{glb.recu.mntEnv|millier}} </p>
+        <p class="p-recu-lib">Frais </p><p>: {{glb.recu.mntFrais|millier}} </p>
+        <p class="p-recu-lib">Mont TTC </p><p>: {{glb.recu.mntTotal|millier}}  </p>
+      </div>
+      <div *ngIf="glb.recu.duplicat">
+        <p class="p-recu-lib">Mont TTC </p><p>: {{glb.recu.montant|millier}}  </p>
+      </div>
+      <br>
+      <span>&lt;Generat(e) Client(e)&gt;</span><br>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="im-wrapper">
+  <button  class="p-btn p-btn-jaune button button-small right-buttons" (click)="imprimer()">
+    imprimer
+  </button>
+</div>
+
+

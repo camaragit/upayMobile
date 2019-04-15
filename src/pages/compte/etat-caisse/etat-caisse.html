@@ -1,0 +1,70 @@
+<!--
+  Generated template for the EtatMouvementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+  <header-title></header-title>
+  <div class="p-container">
+    <div class="im-wrapper p-container-view">
+      <form class="form list" [formGroup]="caisseForm">
+        <fieldset>
+          <legend>Informations</legend>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date debut</ion-label>
+            <ion-datetime displayFormat="DDDD DD MMMM YYYY" formControlName="date1" doneText="Choisir" cancelText="Annuler" ></ion-datetime>
+          </ion-item>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date Fin</ion-label>
+            <ion-datetime displayFormat="DDDD DD MMMM YYYY" formControlName="date2" doneText="Choisir" cancelText="Annuler" [min]="minDate"></ion-datetime>
+          </ion-item>
+          <button style="margin-top: 10px" (click)="AfficherEtatCaisse()" [disabled]="caisseForm.controls.date1.invalid || caisseForm.controls.date2.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+            Afficher
+          </button>
+        </fieldset>
+
+      <fieldset *ngIf="showdetails">
+        <legend>Informations</legend>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="plfI" formControlName="plafondinitial" readonly placeholder="Plafond initial">
+          <label for="plfI" style="width: 100% !important;">Plafond initial</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="totalE" formControlName="totalencaissement" readonly placeholder="Total Encaissement">
+          <label for="totalE" style="width: 100% !important;">Total Encaissement</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="totaldec" formControlName="totaldecaissement" readonly placeholder="Plafond">
+          <label for="totaldec" style="width: 100% !important;">Total décaissement</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="totalC" formControlName="totalcredit" readonly placeholder="Total Crédit">
+          <label for="totalC" style="width: 100% !important;">Total Crédit</label>
+        </div>
+
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="totald" formControlName="totaldebit" readonly placeholder="Total débit">
+          <label for="totald" style="width: 100% !important;">Total débit</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="plfFinal" formControlName="plafondfinal" readonly placeholder="Plafond Final">
+          <label for="plfFinal" style="width: 100% !important;">Plafond Final</label>
+        </div>
+
+
+        <button  (click)="imprimer()" class="p-btn p-btn-jaune button button-small right-buttons">
+          Imprimer
+        </button>
+      </fieldset>
+      </form>
+    </div>
+    <scroll></scroll>
+  </div>
+
+</ion-content>

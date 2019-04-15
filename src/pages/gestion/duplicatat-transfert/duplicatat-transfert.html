@@ -1,0 +1,50 @@
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+<header-title></header-title>
+  <div class="im-wrapper p-container p-container-view">
+    <form class="list form" name="formdup" *ngIf="!glb.showRecu">
+      <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+        <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Selectionner un operateur</ion-label>
+        <ion-select style="border-top: none" interface="popover" [(ngModel)]="operateur" name="operateur">
+          <ion-option value="0007" >Joni Joni</ion-option>
+          <ion-option value="0052" >Proxicash</ion-option>
+          <ion-option value="0044" >Ria</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <br>
+      <button (click)="rechercher()" [disabled]="!operateur"  class="p-btn p-btn-jaune button button-small right-buttons" data-ink-color="#ffc000">
+        Rechercher
+      </button>
+      <br><br>
+      <div class="p-span-tab p-span-tab-4-1" *ngIf="showdetails">
+        <div class="button-bar">
+          <span class="p-span-tab-th">Type</span>
+          <span class="p-span-tab-th">Date</span>
+          <span class="p-span-tab-th">Montant</span>
+          <span class="p-span-tab-th"></span>
+          <span class="p-span-tab-ckb p-btn-jaune"><i class="ion ion-checkmark-circled"></i></span>
+        </div>
+        <div class="button-bar" *ngFor="let trx of transactions">
+          <span class="p-span-tab-td">{{trx.typeop}}</span>
+          <span class="p-span-tab-td">{{trx.dateop}}</span>
+          <span class="p-span-tab-td">{{trx.montant|millier}}</span>
+          <span class="p-span-tab-td" ng-click="getdetails(trx)">Details</span>
+          <span class="p-span-tab-ckb"><label class="p-label-checkbox checkbox"><input  class="p-checkbox" type="checkbox"  [checked]="transactions[trx.id].checked" (click)="handlechecking(trx)" ></label></span>
+        </div>
+        <br>
+        <button  (click)="afficherrecu()" [disabled]="!voirRecu" class="p-btn p-btn-jaune button button-small right-buttons">
+          Voir reçu
+        </button>
+      </div>
+      <br>
+    </form>
+    <div *ngIf="glb.showRecu">
+      <recu-transfert></recu-transfert>
+    </div>
+  </div>
+<scroll></scroll>
+
+</ion-content>

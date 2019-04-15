@@ -1,0 +1,58 @@
+<form class="list form"  >
+  <fieldset>
+    <legend>releve</legend>
+    <div class="field">
+      <input type="text" [(ngModel)]="numfacture" (input)="vider()" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="fullname" [placeholder]="dataencaissement.typereleve">
+      <label for="fullname" style="width: 100% !important;">{{dataencaissement.typereleve}}</label>
+    </div>
+
+    <div class="p-group-button">
+      <button (click)="releve()" [disabled]="!numfacture || numfacture==''"  class="p-btn p-btn-jaune button button-small right-buttons">
+        afficher
+      </button>
+      <button (click)="reset()"  class="p-btn p-btn-gris button button-small right-buttons">
+        Réinitialiser
+      </button>
+    </div>
+    <div *ngIf="showdetails">
+      <div class="proxi-releve">
+        <hr><span class="titre">client </span><strong>:</strong> <span class="info">{{factures.NomClient }}</span><br>
+        <span class="titre">{{dataencaissement.typereleve}} </span><strong>:</strong> <span class="info">{{ factures.IdClient }}</span><br>
+        <span class="titre">total </span><strong>:</strong> <span class="info">{{total}}</span><br>
+        <span class="titre" *ngIf="telephone">Téléphone</span><strong *ngIf="telephone">:</strong> <span class="info" *ngIf="telephone">{{telephone}}</span><br>
+        <div class="field" *ngIf="!hastel">
+          <input type="tel" maxlength="12" [(ngModel)]="telephone" name="telephone" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telben" placeholder="(*)Téléphone">
+          <label for="telben" style="width: 100% !important;">(*)Telephone</label>
+        </div>
+
+        <hr>
+      </div>
+      <br>
+      <div class="p-span-tab p-span-tab-3-1">
+        <span class="p-span-tab-title">Liste des factures</span>
+        <div class="button-bar">
+          <span class="p-span-tab-th">Facture</span>
+          <span class="p-span-tab-th">Echéance</span>
+          <span class="p-span-tab-th">Montant</span>
+          <span class="p-span-tab-ckb p-btn-jaune"><i class="ion ion-ios-checkmark-circle"></i></span>
+        </div>
+       <div class="button-bar" *ngFor="let fact of listefactures" >
+          <span class="p-span-tab-td">{{fact.numFact}}</span>
+          <span class="p-span-tab-td">{{fact.dateEch}} </span>
+          <span class="p-span-tab-td">{{fact.mntFact | millier}}</span>
+          <span class="p-span-tab-ckb"><label class="p-label-checkbox checkbox"><input  class="p-checkbox" type="checkbox"  [checked]="listefactures[fact.id].checked" (click)="handlechecking(fact.id)" ></label></span>
+        </div>
+
+        <br>
+        <button (click)="validerEncaissement()" [disabled]="nombreFacture==0" class="p-btn p-btn-vert button button-small right-buttons">
+          Encaisser
+        </button>
+        <button  (click)="reset()"  class="p-btn p-btn-red  button button-small left-buttons">
+          Réinitialiser
+        </button>
+
+      </div>
+    </div>
+
+  </fieldset>
+</form>

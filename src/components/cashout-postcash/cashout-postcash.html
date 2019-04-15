@@ -1,0 +1,44 @@
+<form class="list form" name="formrecharge" [formGroup]="retraitForm" >
+  <fieldset>
+    <legend>Initialisation</legend>
+    <div class="field">
+      <input type="tel" maxlength="12" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" formControlName="telephone"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telben" placeholder="Téléphone">
+      <label for="telben" style="width: 100% !important;">Telephone</label>
+    </div>
+    <div class="field">
+      <input type="tel" (blur)="changemontant()" formControlName="montant" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="adresseben" placeholder="Montant">
+      <label for="adresseben" style="width: 100% !important;">Montant</label>
+    </div>
+
+
+    <div class="p-button-group">
+      <button  (click)="initierCashout()" [disabled]="retraitForm.controls.montant.invalid || (retraitForm.controls.telephone.valid && retraitForm.controls['telephone'].value.length <12) || (retraitForm.controls.telephone.valid && serv.verificationnumero(retraitForm.controls['telephone'].value))" class="p-btn p-btn-jaune button button-small right-buttons">
+        Initier
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="retraitForm.reset();showdetails=false;">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+  <br><br>
+  <fieldset *ngIf="showdetails">
+    <legend>Validation</legend>
+    <div class="field">
+      <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="otp" formControlName="montanttc" placeholder="Montant TTC">
+      <label for="otp" style="width: 100% !important;">Montant TTC</label>
+    </div>
+    <div class="field">
+      <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="phone" formControlName="codevalidation" placeholder="Code de validation">
+      <label for="phone" style="width: 100% !important;">Code de validation</label>
+    </div>
+
+    <div class="p-button-group">
+      <button  (click)="validerRetrait()" [disabled]="retraitForm.controls.codevalidation.invalid" class="p-btn p-btn-vert button button-small right-buttons">
+        Valider
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="retraitForm.reset();showdetails=false;">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+</form>

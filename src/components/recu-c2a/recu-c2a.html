@@ -1,0 +1,71 @@
+<!-- Reçu encaissement Woyofal -->
+<div class="p-recu padding" style="margin-top: -30px;">
+  <div align="left" class="col col-100">
+    <div class="p-recu-content">
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">Recu de transaction Cash2Account</div>
+      <br>
+      <div class="p-recu-title-lf">Copie Client</div>
+      <p class="p-recu-lib">Oper</p><p>:  Cash2Account</p>
+      <p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Num Trx</p><p>: {{glb.recu.NumTrx}}</p>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+
+
+      <hr>
+
+      <p class="p-recu-lib">Code Es/Client</p><p>:{{glb.recu.codees}}  </p>
+      <p class="p-recu-lib">Nom Es/Client</p><p>:{{glb.recu.nomEs}}  </p>
+      <br>
+
+      <p class="p-recu-lib">Remettant</p><p>:{{glb.recu.remettant}}  </p>
+      <p class="p-recu-lib">Telephone</p><p>:{{glb.recu.teclient}}  </p>
+      <p class="p-recu-lib">Num Pièce</p><p>:{{glb.recu.numpiece}}  </p>
+      <br>
+
+
+      <p class="p-recu-lib">Montant versé</p><p>:{{glb.recu.montant}}  </p>
+      <p class="p-recu-lib">Frais</p><p>:{{glb.recu.frais}}  </p>
+      <p class="p-recu-lib">Montant TTc</p><p>:{{glb.recu.mnttc}}  </p>
+
+      <span>Proximo vous remercie</span><br>
+      <span>&lt;Plus d'info au 33 869 31 22&gt;</span><br><br>
+      <hr style="margin-bottom: -5px;"><hr><br>
+
+      <!-- Copie reception -->
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">Recu de transaction Cash2Account</div>
+      <br>
+      <div class="p-recu-title-lf">Copie Agence</div>
+      <p class="p-recu-lib">Oper</p><p>:  Cash2Account</p>
+      <p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Num Trx</p><p>: {{glb.recu.NumTrx}}</p>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+
+      <hr>
+
+      <p class="p-recu-lib">Code Es/Client</p><p>:{{glb.recu.codees}}  </p>
+      <p class="p-recu-lib">Nom Es/Client</p><p>:{{glb.recu.nomEs}}  </p>
+
+
+
+      <p class="p-recu-lib">Remettant</p><p>:{{glb.recu.remettant}}  </p>
+      <p class="p-recu-lib">Telephone</p><p>:{{glb.recu.teclient}}  </p>
+      <p class="p-recu-lib">Num Pièce</p><p>:{{glb.recu.numpiece}}  </p>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="im-wrapper">
+  <button  class="p-btn p-btn-jaune button button-small right-buttons" ng-controller="CompteCashtoaccountCtrl" ng-click="imprimer(recu)">
+    imprimer
+  </button>
+</div>
+
+<div proxi-scroll></div>

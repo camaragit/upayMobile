@@ -1,0 +1,75 @@
+
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+<header-title></header-title>
+  <div class="im-wrapper p-container-view">
+    <p class="p-img-top logo-dupliwoyofal"></p>
+    <h3>Duplicata encaissement</h3>
+    <form class="list form" name="formdup" [formGroup]="critere" *ngIf="!glb.showRecu">
+      <fieldset>
+        <legend>Demande</legend>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Operateur</ion-label>
+          <ion-select style="border-top: none" formControlName="oper" interface="popover">
+            <ion-option value="0016" >SDE</ion-option>
+            <ion-option value="0027" >SENELEC</ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="field" style="margin-top:20px;">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="iddoc" id="ncompte" placeholder="Numéro Compte">
+          <label for="ncompte" style="width: 100% !important;">Police/Reference</label>
+        </div>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date Oper</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" formControlName="datedebut" doneText="Choisir" cancelText="Annuler" ></ion-datetime>
+        </ion-item>
+
+        <div class="p-group-button" >
+          <button  (click)="rechercher()" [disabled]="critere.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+            Rechercher
+          </button>
+
+        </div>
+      </fieldset>
+
+
+      <fieldset *ngIf="showdetails">
+        <legend>Releve</legend>
+        <span class="titre">Nom Client </span><strong>:</strong> <span class="info">xxxxxx</span><br>
+        <div ng-if="data.oper=='0016'"><span class="titre">Téléphone </span><strong>:</strong> <span class="info" ng-if="transactions.telClient">{{transactions.telClient}}</span><br></div>
+        <label class="p-label-border-inherit item item-input item-floating-label" style="margin-bottom: -40px;"></label>
+        <div class="p-span-tab p-span-tab-5-0" >
+          <div class="button-bar">
+            <span class="p-span-tab-th">{{typedocument}}</span>
+            <span class="p-span-tab-th">Date oper</span>
+            <span class="p-span-tab-th">Mnt</span>
+            <span class="p-span-tab-th">Frais</span>
+            <span class="p-span-tab-th">Tmb</span>
+            <span class="p-span-tab-th">Mnt total</span>
+          </div>
+          <div class="button-bar" >
+            <span class="p-span-tab-td">{{ transactions.IdClient}}</span>
+            <span class="p-span-tab-td">{{ transactions.dtTrx }}</span>
+            <span class="p-span-tab-td">{{ transactions.mntFact | millier}}</span>
+            <span class="p-span-tab-td">{{ transactions.mntFrais|millier}}</span>
+            <span class="p-span-tab-td">{{ transactions.mntTbr |millier}}</span>
+            <span class="p-span-tab-td">{{ transactions.mntTotal |millier}}</span>
+
+          </div>
+          <br>
+          <button  (click)="afficherrecu()"  class="p-btn p-btn-jaune button button-small right-buttons">
+            Voir reçu
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <div *ngIf="glb.showRecu">
+      <recu-encaissement></recu-encaissement>
+    </div>
+  </div>
+<scroll></scroll>
+</ion-content>

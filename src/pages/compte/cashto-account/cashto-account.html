@@ -1,0 +1,123 @@
+
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+<header-title></header-title>
+  <div class="im-wrapper p-container-view">
+    <form class="form list" name="releve" [formGroup]="dataForm" *ngIf="!glb.showRecu">
+      <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+        <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type de demande</ion-label>
+        <ion-select style="border-top: none" interface="popover" formControlName="institution" (ionChange)="reset()">
+          <ion-option value="ATPS" >ATPS</ion-option>
+          <ion-option value="AMANA" >AMANA</ion-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="dataForm.controls['institution'].value=='ATPS'">
+        <fieldset>
+          <legend>Releve</legend>
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="Numcompte" id="ncompte" placeholder="Numéro Compte">
+            <label for="ncompte" style="width: 100% !important;">Numéro Compte</label>
+          </div>
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="montant" id="mntreleve" placeholder="Montant">
+            <label for="mntreleve" style="width: 100% !important;">Montant</label>
+          </div>
+
+            <br>
+            <br>
+            <button  (click)="afficher()" [disabled]="dataForm.controls.Numcompte.invalid || dataForm.controls.montant.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+              Afficher
+            </button>
+
+        </fieldset>
+
+        <div *ngIf="showdetails">
+          <!-- Releve -->
+          <fieldset>
+            <legend>Info Remettant</legend>
+            <div class="field">
+              <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="prenomremet" id="nomret" placeholder="Nom">
+              <label for="nomret" style="width: 100% !important;">Nom</label>
+            </div>
+            <div class="field">
+              <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="es" formControlName="Codees"  readonly placeholder="Code Es">
+              <label for="es" style="width: 100% !important;">Code Es</label>
+            </div>
+            <div class="field">
+              <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="num" formControlName="Numcompte" readonly placeholder="Num compte Client">
+              <label for="num" style="width: 100% !important;">Num compte Client</label>
+            </div>
+            <div class="field">
+              <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" (blur)="changemontant()" name="fullname" id="mnt" formControlName="mnttc" readonly placeholder="Montant">
+              <label for="mnt" style="width: 100% !important;">Montant TTC</label>
+            </div>
+            <div class="field">
+              <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" id="tel" formControlName="telremet" placeholder="Téléphone">
+              <label for="tel" style="width: 100% !important;">Téléphone</label>
+            </div>
+            <div class="field">
+              <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="adrs" formControlName="adresse" placeholder="Adresse">
+              <label for="adrs" style="width: 100% !important;">Adresse</label>
+            </div>
+
+            <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+              <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type pièce</ion-label>
+              <ion-select  ng-model="denvoi.demandeSelect" formControlName="typIdExp"  interface="popover">
+                <ion-option value="CNI">CNI</ion-option>
+                <ion-option value="Passport">Passport</ion-option>
+                <ion-option value="Permis">Permis</ion-option>
+              </ion-select>
+            </ion-item>
+            <div class="field" style="margin-top: 30px" >
+              <input formControlName="numPiece" type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="piece" placeholder="Numéro de police">
+              <label for="pieceben" style="width: 100% !important;">Num pièce</label>
+            </div>
+            <div class="p-button-group">
+              <button (click)="validerReception()" [disabled]="!dataForm.valid ||(dataForm.controls['telremet'].value.length <12) || (serv.verificationnumero(dataForm.controls['telremet'].value))" class="p-btn p-btn-vert button button-small right-buttons">
+                Envoyer
+              </button>
+
+            </div>
+          </fieldset>
+
+
+
+        </div>
+      </div>
+      <div *ngIf="dataForm.controls['institution'].value=='AMANA'">
+        <fieldset>
+          <legend>Infos</legend>
+          <div class="field">
+            <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pieceben" formControlName="prenomremet" placeholder="Nom Remettant">
+            <label for="pieceben" style="width: 100% !important;">Nom Remettant</label>
+          </div>
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()"  id="telben" formControlName="telremet" placeholder="Téléphone">
+            <label for="telben" style="width: 100% !important;">Téléphone</label>
+          </div>
+          <div class="field">
+            <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (blur)="changemontant()" id="mntben" formControlName="montant" placeholder="Montant">
+            <label for="mntreleve" style="width: 100% !important;">Montant</label>
+          </div>
+          <div class="p-button-group">
+            <button (click)="validerReception()" [disabled]="!dataForm.valid ||(dataForm.controls['telremet'].value.length <12) || (serv.verificationnumero(dataForm.controls['telremet'].value))" class="p-btn p-btn-vert button button-small right-buttons">
+              Envoyer
+            </button>
+
+          </div>
+        </fieldset>
+
+      </div>
+
+    </form>
+    <div *ngIf="glb.showRecu">
+      <recu-c2a></recu-c2a>
+    </div>
+  </div>
+
+  <scroll></scroll>
+</ion-content>

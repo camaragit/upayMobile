@@ -1,0 +1,12 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+  <header-title></header-title>
+  <div class="p-service p-box padding">
+    <a *ngFor="let recharge of recharges" (click)="verspage(recharge.component)">
+      <img class="p-service-img senelec" [src]="recharge.img" [alt]="recharge.service">
+    </a>
+  </div>
+</ion-content>

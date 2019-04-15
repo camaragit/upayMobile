@@ -1,0 +1,34 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+  <div class="p-container">
+    <header-title></header-title>
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-ria"></p>
+      <div *ngIf="!glb.showRecu">
+
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type de Service</ion-label>
+            <ion-select style="border-top: none" [(ngModel)]="service" interface="popover">
+
+              <ion-option>Réception</ion-option>
+            </ion-select>
+          </ion-item>
+
+
+        <reception *ngIf="service=='Réception'" [datareception]="datareception"></reception>
+
+      </div>
+
+      <div *ngIf="glb.showRecu">
+        <recu-transfert></recu-transfert>
+      </div>
+    </div>
+
+  </div>
+  <scroll></scroll>
+</ion-content>

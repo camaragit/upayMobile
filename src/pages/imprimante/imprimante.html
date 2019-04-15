@@ -1,0 +1,42 @@
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content class="main-view" >
+  <header-title></header-title>
+  <div class="modal_content">
+    <fieldset>
+      <legend>Recherche Imprimante</legend>
+      <div *ngIf="glb.notfound">
+        <p style="color: #d50000">{{glb.message}}</p>
+        <div class="button-bar">
+          <button (click)="annuler()"  class="p-btn p-btn-red button button-small right-buttons">
+            Annuler
+          </button>
+          <button (click)="rechercher()"  class="p-btn p-btn-jaune button button-small left-buttons">
+            Rechercher
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!glb.notfound">
+        <ion-list radio-group [(ngModel)]="selectedImp">
+          <ion-item no-lines="" *ngFor="let imp of glb.listeImprimantes;">
+            <ion-label>{{ imp.name }}</ion-label>
+            <ion-radio [value]="imp" ></ion-radio>
+          </ion-item>
+        </ion-list>
+        <div class="button-bar">
+          <button (click)="annuler()"  class="p-btn p-btn-red button button-small right-buttons">
+            Annuler
+          </button>
+          <button (click)="lier()" [disabled]="!selectedImp" class="p-btn p-btn-vert button button-small left-buttons">
+            Lier
+          </button>
+        </div>
+
+      </div>
+
+    </fieldset>
+
+  </div>
+
+</ion-content>

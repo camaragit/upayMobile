@@ -1,0 +1,15 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+  <header-title></header-title>
+  <div class="p-service p-box padding">
+    <a *ngFor="let cpt of comptes" (click)="verspage(cpt.component)">
+      <img class="p-service-img expresso" [src]="cpt.img" [alt]="cpt.service">
+      <span class="p-box-title">{{cpt.title}}</span>
+
+    </a>
+  </div>
+  <scroll></scroll>
+</ion-content>

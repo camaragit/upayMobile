@@ -1,0 +1,23 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+  <div class="p-container">
+    <header-title></header-title>
+    <p class="p-img-top logo-sde1"></p>
+    <div padding="" class="im-wrapper p-container-view">
+      <div *ngIf="!glb.showRecu">
+        <encaissement-releve [dataencaissement]="dataencaissement"></encaissement-releve>
+      </div>
+      <div *ngIf="glb.showRecu">
+        <recu-encaissement></recu-encaissement>
+      </div>
+    </div>
+
+    </div>
+  <scroll></scroll>
+
+</ion-content>

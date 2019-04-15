@@ -1,0 +1,45 @@
+<form  class="list form" name="formrecharge" [formGroup]="rechargeForm">
+
+  <!-- Recharge Rapido -->
+  <div>
+    <fieldset>
+      <legend>releve</legend>
+      <div class="field">
+        <input type="tel" (input)="changemontant()" formControlName="montantrlv" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="mnt" placeholder="Montant">
+        <label for="mnt" style="width: 100% !important;">Montant</label>
+      </div>
+      <div class="p-button-group">
+        <button  (click)="releveFrais()" [disabled]="rechargeForm.controls['montantrlv'].value<=0"
+                class="p-btn p-btn-jaune button button-small right-buttons">
+          Afficher
+        </button>
+
+
+      </div>
+    </fieldset>
+
+    <fieldset *ngIf="montantrelve>0">
+      <legend>Validation</legend>
+      <div class="field">
+        <input type="tel" formControlName="montant" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="ttc" placeholder="Montant TTC" readonly>
+        <label for="ttc" style="width: 100% !important;">Montant TTC</label>
+      </div>
+      <div class="field">
+        <input type="tel" (input)="changetel()" (focus)="focustel()" (blur)="blurtel()" formControlName="telephone" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="badge" [placeholder]="cashindata.libelle">
+        <label for="badge" style="width: 100% !important;">{{cashindata.libelle}}</label>
+      </div>
+
+
+      <div class="p-button-group">
+        <button (click)="validerCashin()"
+                class="p-btn p-btn-vert button button-small right-buttons">
+          encaisser
+        </button>
+        <button class="p-btn p-btn-gris button button-small right-buttons" (click)="rechargeForm.reset();montantrelve=0;">
+          Réinitialiser
+        </button>
+      </div>
+    </fieldset>
+
+  </div>
+</form>

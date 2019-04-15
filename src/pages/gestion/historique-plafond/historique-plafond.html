@@ -1,0 +1,63 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content >
+<header-title></header-title>
+  <div class="im-wrapper p-container-view">
+    <form class="list form"name="formenl" [formGroup]="criterForm">
+      <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+        <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Selectionner un Etat</ion-label>
+        <ion-select style="border-top: none"  interface="popover" formControlName="statut">
+          <ion-option value="1" >Validé</ion-option>
+          <ion-option value="0" >En attente</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <fieldset>
+        <legend>Informations</legend>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date debut</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" doneText="Choisir" (ionChange)="changedatedeb()" cancelText="Annuler" formControlName="datedebut"></ion-datetime>
+        </ion-item>
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label  floating>Date Fin</ion-label>
+          <ion-datetime displayFormat="DDDD DD MMMM YYYY" doneText="Choisir" (ionChange)="changefin()" cancelText="Annuler" formControlName="datefin" [min]="minDate"></ion-datetime>
+
+        </ion-item>
+
+        <div class="field" style="margin-top: 30px">
+          <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="nomret" formControlName="montant" (blur)="changemontant()" placeholder="Montant">
+          <label for="nomret" style="width: 100% !important;">Montant</label>
+        </div>
+
+
+        <button (click)="afficher()" [disabled]="criterForm.invalid" class="button button-small p-btn p-btn-jaune left-buttons" data-ink-color="#ffc000">
+          afficher
+        </button>
+      </fieldset>
+
+      <div class="p-span-tab p-span-tab-5-0" *ngIf="showdetails">
+        <div class="button-bar">
+          <span class="p-span-tab-th">Date</span>
+          <span class="p-span-tab-th">Montant</span>
+          <span class="p-span-tab-th">Type</span>
+          <span class="p-span-tab-th">Beneficiaire</span>
+          <span class="p-span-tab-th">Details</span>
+        </div>
+        <div class="button-bar" *ngFor="let trx of transactions" >
+          <span class="p-span-tab-td">{{ trx.DateOperation }}</span>
+          <span class="p-span-tab-td">{{ trx.Montant|millier }}</span>
+          <span class="p-span-tab-td">{{ trx.MoyenPaiement }}</span>
+          <span class="p-span-tab-td">{{ trx.Recipiendaire }}</span>
+          <span class="p-span-tab-td" (click)="getdetails(trx)"><ion-icon color="proximo" name="md-eye"></ion-icon></span>
+
+        </div>
+        <br>
+      </div>
+      <br>
+
+    </form>
+  </div>
+  <scroll></scroll>
+</ion-content>

@@ -1,0 +1,83 @@
+<div class="p-recu padding" style="margin-top: -30px;">
+  <div align="left" class="col col-100">
+    <div class="p-recu-content">
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">recu de transaction {{ glb.recu.Oper }}</div>
+      <br>
+      <div class="p-recu-title">Copie Client</div>
+      <p class="p-recu-lib">Oper</p><p>: {{ glb.recu.Oper }}</p>
+      <p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Num trx</p><p>: {{glb.recu.numTrx}} </p><br>
+      <div *ngIf="glb.recu.Oper == 'SENELEC'"><p class="p-recu-lib" >Police</p><p>: {{glb.recu.IdClient}}  </p><br></div>
+      <div *ngIf="glb.recu.Oper == 'SDE'"><p class="p-recu-lib" >Reférence</p><p>: {{glb.recu.IdClient}}  </p><br></div>
+      <div *ngIf="glb.recu.Oper == 'SDE' && glb.recu.telClient"><p class="p-recu-lib" >Téléphone</p><p>: {{glb.recu.telClient}}  </p><br></div>
+      <p class="p-recu-lib">Client</p><p>: {{glb.recu.NomClient}}</p><br>
+
+      <hr>
+      <div class="p-recu-title">Factures
+        <div *ngIf="!glb.recu.duplicatat">
+          <hr>
+          <table>
+            <thead>
+            <th>N</th>
+            <th>Fact</th>
+            <th>Mnt</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fact of glb.recu.Factures.Facture;let i=index">
+              <th>{{i+1}}</th>
+              <th>{{fact.numFact}}</th>
+              <th>{{fact.mntFact|millier}}</th>
+            </tr>
+            </tbody>
+          </table></div>
+      </div>
+      <hr>
+      <p class="p-recu-lib">Mnt Facture</p><p>: {{glb.recu.mntFact|millier}}</p><br>
+      <div *ngIf="glb.recu.mntTbr>0"> <p class="p-recu-lib">Timbre</p><p>:{{glb.recu.mntTbr|millier}}</p><br></div>
+      <p class="p-recu-lib">Frais</p><p>: {{glb.recu.mntFrais|millier}}</p><br>
+
+      <hr>
+      <p class="p-recu-lib">Total</p><p>: {{glb.recu.mntTotal|millier}} </p>
+      <span>Proximo vous remercie</span><br>
+      <span>&lt;Plus d'info au 33 869 31 22&gt;</span><br><br>
+      <hr style="margin-bottom: -5px;"><hr><br>
+
+      <!-- Copie reception -->
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">recu de transaction {{glb.recu.Oper}}</div>
+      <br>
+      <div class="p-recu-title">Copie Agence</div>
+      <p class="p-recu-lib">Oper</p><p>:   {{ glb.recu.Oper }}</p>
+      <p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p>
+
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Num trx</p><p>: {{glb.recu.numTrx}} </p><br>
+      <div *ngIf="glb.recu.Oper == 'SENELEC'"><p class="p-recu-lib" >Police</p><p>: {{glb.recu.IdClient}}  </p><br></div>
+      <div *ngIf="glb.recu.Oper == 'SDE'"><p class="p-recu-lib" >Reférence</p><p>: {{glb.recu.IdClient}}  </p><br></div>
+      <div *ngIf="glb.recu.Oper == 'SDE'"><p class="p-recu-lib" >Téléphone</p><p>: {{glb.recu.telClient}}  </p><br></div>
+      <p class="p-recu-lib">Client</p><p>: {{glb.recu.NomClient}}</p><br>
+
+      <hr>
+
+
+      <p class="p-recu-lib">Mnt Facture</p><p>:  {{glb.recu.mntFact|millier}}</p><br>
+      <div *ngIf="glb.recu.mntTbr>0"> <p class="p-recu-lib">Timbre</p><p>:{{glb.recu.mntTbr|millier}}</p><br></div>
+    <p class="p-recu-lib">Frais</p><p>:{{glb.recu.mntFrais|millier}}</p><br>
+    <hr>
+    <p class="p-recu-lib">Total</p><p>: {{glb.recu.mntTotal|millier}} </p>
+
+
+  </div>
+
+</div>
+<div>
+    <button (click)="imprimer()" class="p-btn p-btn-jaune button button-small right-buttons">
+      Imprimer
+    </button>
+</div>
+
+</div>

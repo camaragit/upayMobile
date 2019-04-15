@@ -1,14 +1,16 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+<headerComp ></headerComp>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="p-container padding-bottom">
+    <div class="p-box padding">
+      <a *ngFor="let page of pages" (click)="verspage(page)" >
+        <img class="p-box-img encaissement" [src]="page.src" [alt]="page.title">
+        <span class="p-box-title">{{page.title}}</span>
+      </a>
+
+    </div>
+    <div proxi-scroll></div>
+  </div>
 </ion-content>

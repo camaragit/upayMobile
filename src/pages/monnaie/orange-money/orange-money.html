@@ -1,0 +1,31 @@
+
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+<ion-content isScrolling="true">
+  <div class="p-container">
+    <header-title></header-title>
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-orangemoney"></p>
+      <div *ngIf="!glb.showRecu">
+        <div>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;" >Type de Service</ion-label>
+            <ion-select style="border-top: none" [(ngModel)]="service" interface="popover">
+              <ion-option>Cashin</ion-option>
+              <ion-option>Cashout</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <recharge [datarecharge]="datarecharge" *ngIf="service=='Cashin'"></recharge>
+        <cashoutom *ngIf="service=='Cashout'" [datareception]="datareception"></cashoutom>
+      </div>
+      <div *ngIf="glb.showRecu">
+        <recu-recharge></recu-recharge>
+      </div>
+    </div>
+
+  </div>
+  <scroll></scroll>
+
+</ion-content>

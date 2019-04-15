@@ -1,0 +1,25 @@
+<form class="list form" name="formrecharge" >
+  <fieldset>
+    <legend>Informations</legend>
+    <form [formGroup]="rechargeForm">
+      <div class="field">
+        <input type="tel"  (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" formControlName="telephone"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telben" placeholder="Téléphone">
+        <label for="telben" style="width: 100% !important;">Telephone</label>
+      </div>
+      <div class="field">
+        <input type="tel" (blur)="changemontant()" formControlName="montant" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="adresseben" placeholder="Montant">
+        <label for="adresseben" style="width: 100% !important;">Montant</label>
+      </div>
+
+      <div class="p-button-group">
+        <button  (click)="recharger()" [disabled]="!rechargeForm.valid ||(rechargeForm.controls['telephone'].value.length <12) || (serv.verificationnumero(rechargeForm.controls['telephone'].value)) " class="p-btn p-btn-vert button button-small right-buttons">
+          Valider
+        </button>
+        <button class="p-btn p-btn-gris button button-small right-buttons" (click)="rechargeForm.reset();">
+          Réinitialiser
+        </button>
+      </div>
+    </form>
+
+  </fieldset>
+</form>

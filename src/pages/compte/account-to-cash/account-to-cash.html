@@ -1,0 +1,66 @@
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+
+<ion-content>
+<header-title></header-title>
+  <div class="im-wrapper p-container-view">
+
+    <form class="list form" name="formenlevement" [formGroup]="enlevementForm">
+
+      <div class="p-span-tab p-span-tab-3-0">
+        <div class="button-bar">
+          <span class="p-span-tab-th">plafond</span>
+          <span class="p-span-tab-th">consomme</span>
+          <span class="p-span-tab-th">solde</span>
+        </div>
+        <div class="button-bar">
+          <span class="p-span-tab-td">Plafond ATPS</span>
+          <span class="p-span-tab-td">{{glb.HEADER.consomme|millier}}</span>
+          <span class="p-span-tab-td">{{glb.HEADER.montant|millier}}</span>
+        </div>
+      </div>
+
+
+      <fieldset>
+        <legend>Informations</legend>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pfl" formControlName="mntPlf" readonly placeholder="Plafond">
+          <label for="pfl" style="width: 100% !important;">Plafond</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="min" formControlName="min" readonly placeholder="Minimum">
+          <label for="min" style="width: 100% !important;">Montant minimum</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="max" formControlName="max" readonly placeholder="Montant maximum">
+          <label for="max" style="width: 100% !important;">Montant maximum</label>
+        </div>
+
+        <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+          <ion-label floating=""  style="color:#444 !important;font-family: ubuntuMono !important;">Type Compte</ion-label>
+          <ion-select  formControlName="type" interface="popover">
+            <ion-option value="01">Chèque</ion-option>
+            <ion-option value="02">Compte Bancaire</ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="field" style="margin-top: 30px">
+          <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" (blur)="changemontant()" formControlName="montant" id="nomret" placeholder="Montant">
+          <label for="nomret" style="width: 100% !important;">Montant</label>
+        </div>
+        <div class="field">
+          <input type="text" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" formControlName="recipient" id="pieceben" placeholder="Nom recipiendaire">
+          <label for="pieceben" style="width: 100% !important;">Nom recipiendaire</label>
+        </div>
+
+        <div class="p-button-group" style="margin-top: 30px">
+          <button (click)="validerReception()" [disabled]="enlevementForm.invalid" class="p-btn p-btn-vert button button-small right-buttons">
+            Demander
+          </button>
+
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <scroll></scroll>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+<header-title></header-title>
+  <div class="p-container">
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-etatmouvement"></p>
+      <form class="form list" [formGroup]="critere">
+        <fieldset>
+          <legend>Informations</legend>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date debut</ion-label>
+            <ion-datetime displayFormat="DDDD DD MMMM YYYY" (ionChange)="changedatedeb()" formControlName="date1" doneText="Choisir" cancelText="Annuler"></ion-datetime>
+          </ion-item>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date Fin</ion-label>
+            <ion-datetime displayFormat="DDDD DD MMMM YYYY" (ionChange)="changefin()" doneText="Choisir" formControlName="date2" cancelText="Annuler" [min]="minDate"></ion-datetime>
+          </ion-item>
+          <div class="field" style="margin-top:30px">
+            <input formControlName="password" (input)="changepassword()" type="password" style=";border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="pwd" placeholder="Mot de Passe Commission">
+            <label for="pwd" style="width: 100% !important;">Mot de Passe Commission</label>
+          </div>
+
+          <button style="margin-top: 10px" (click)="listercios()" [disabled]="critere.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+            Afficher
+          </button>
+        </fieldset>
+      </form>
+      <div *ngIf="showdetails">
+        <div class="p-span-tab p-span-tab-5-0">
+          <span class="p-span-tab-title">Liste commissions </span>
+          <div class="button-bar">
+            <span class="p-span-tab-th">Operateur </span>
+            <span class="p-span-tab-th">service </span>
+            <span class="p-span-tab-th">Base </span>
+            <span class="p-span-tab-th">Cios </span>
+            <span class="p-span-tab-th">Nb Trx</span>
+          </div>
+          <div class="button-bar" *ngFor="let com of commissions">
+            <span class="p-span-tab-td">{{ com.Oper}}</span>
+            <span class="p-span-tab-td">{{ com.Type}}</span>
+            <span class="p-span-tab-td">{{ com.MntBase|millier}}</span>
+            <span class="p-span-tab-td">{{com.MntCom|millier}}</span>
+            <span class="p-span-tab-td">{{com.Nombre}}</span>
+          </div>
+          <br>
+        </div>
+        <!-- Liste totaux -->
+        <div class="p-span-tab p-span-tab-4-0">
+          <span class="p-span-tab-title">Totaux </span>
+          <div class="button-bar">
+            <span class="p-span-tab-th">Nbre trx </span>
+            <span class="p-span-tab-th">Base </span>
+            <span class="p-span-tab-th">CIOS </span>
+            <span class="p-span-tab-th">TVA </span>
+          </div>
+          <div class="button-bar">
+            <span class="p-span-tab-td">{{total.nbrtrx }}</span>
+            <span class="p-span-tab-td" >{{ total.MntBase |millier }}</span>
+            <span class="p-span-tab-td">{{ total.MntCom |millier }}</span>
+            <span class="p-span-tab-td"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+<scroll></scroll>
+  </div>
+</ion-content>

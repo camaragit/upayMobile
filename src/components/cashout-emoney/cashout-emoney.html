@@ -1,0 +1,38 @@
+<form class="list form" name="formrecharge" [formGroup]="cashoutForm">
+  <fieldset>
+    <legend>Initialisation</legend>
+    <div class="field">
+      <input type="tel" maxlength="12" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" formControlName="telephone"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telben" placeholder="Téléphone">
+      <label for="telben" style="width: 100% !important;">Telephone</label>
+    </div>
+    <div class="field">
+      <input type="tel" (blur)="changemontant()" formControlName="montant" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="adresseben" placeholder="Montant">
+      <label for="adresseben" style="width: 100% !important;">Montant</label>
+    </div>
+    <div class="p-button-group">
+      <button  (click)="initierCashout()" [disabled]="cashoutForm.controls['montant'].value < 0 || (cashoutForm.controls['telephone'].value && cashoutForm.controls['telephone'].value.length <12) || (cashoutForm.controls['telephone'].value && serv.verificationnumero(cashoutForm.controls['telephone'].value))"  class="p-btn p-btn-jaune button button-small right-buttons">
+        Initier
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset();">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+  <br><br>
+  <fieldset *ngIf="cashoutForm.controls.numtrx.valid">
+    <legend>Validation</legend>
+    <div class="field">
+      <input type="tel" formControlName="codevalidation" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="otp" placeholder="Numéro de police">
+      <label for="otp" style="width: 100% !important;">Code OTP</label>
+    </div>
+
+    <div class="p-button-group">
+      <button  (click)="validerCashout()" [disabled]="cashoutForm.invalid" class="p-btn p-btn-vert button button-small right-buttons">
+        Valider
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="cashoutForm.reset();">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+</form>

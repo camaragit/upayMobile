@@ -1,0 +1,17 @@
+<ion-header>
+  <headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+  <div class="p-container">
+    <header-title></header-title>
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-rapido"></p>
+      <cashinreleve *ngIf="!glb.showRecu" [cashindata]="datacashin"></cashinreleve>
+      <recu-recharge *ngIf="glb.showRecu"></recu-recharge>
+    </div>
+  </div>
+  <scroll></scroll>
+</ion-content>
+

@@ -1,0 +1,53 @@
+<div class="p-recu padding" style="margin-top: -30px">
+  <div align="left" class="col col-100">
+    <div class="p-recu-content">
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">Recu de Transaction</div>
+      <br>
+      <p class="p-recu-lib">Le</p><p>:  {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Opérateur</p><p>:  {{glb.recu.Oper}}</p><br>
+      <div *ngIf="glb.recu.service">
+        <p class="p-recu-lib">Service</p><p>:  {{glb.recu.service}}</p><br>
+      </div>
+
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Num trx</p><p>: {{glb.recu.numTrx}} </p><br>
+      <div *ngIf="glb.recu.service && glb.recu.service=='rapido'">
+        <p class="p-recu-lib">N° Badge</p><p>:  {{glb.recu.telRech}}</p><br>
+      </div>
+      <p *ngIf="!glb.recu.service || glb.recu.service!='rapido'" class="p-recu-lib">Telephone</p><p>: {{glb.recu.telRech}} </p><br>
+      <div *ngIf="glb.recu.Oper=='Revendeur Seedo' ||glb.recu.Oper=='Revendeur Yakalma'"> <p class="p-recu-lib">Taux</p><p>: {{glb.recu.taux}} </p><br></div>
+      <hr>
+      <p class="p-recu-lib">Montant</p><p>:{{glb.recu.mntAch |millier}}  </p><br>
+      <span>Proximo vous remercie</span><br>
+      <span>&lt;Plus d'info au 33 869 31 22&gt;</span><br><br>
+      <hr style="margin-bottom: -5px;"><hr><br>
+
+      <!-- Copie reception -->
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf">Recu de Transaction</div>
+      <br>
+      <p class="p-recu-lib">Le</p><p>:  {{glb.recu.dtTrx}}</p>
+      <p class="p-recu-lib">Opérateur</p><p>:  {{glb.recu.Oper}}</p><br>
+      <div *ngIf="glb.recu.service">
+        <p class="p-recu-lib">Service</p><p>:  {{glb.recu.service}}</p><br>
+      </div>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Num trx</p><p>: {{glb.recu.numTrx}} </p><br>
+      <p class="p-recu-lib">Telephone</p><p>: {{glb.recu.telRech}} </p><br>
+      <div *ngIf="glb.recu.Oper=='Revendeur Seedo' ||glb.recu.Oper=='Revendeur Yakalma'"> <p class="p-recu-lib">Taux</p><p>: {{glb.recu.taux}} </p><br></div>
+      <hr>
+      <p class="p-recu-lib">Montant</p><p>:{{glb.recu.mntAch |millier}}  </p><br>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="im-wrapper" >
+  <button  class="p-btn p-btn-jaune button button-small right-buttons" (click)="imprimer()">
+   Imprimer
+  </button>
+</div>

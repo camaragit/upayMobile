@@ -1,0 +1,77 @@
+<!--
+  Generated template for the EtatMouvementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<headerComp></headerComp>
+</ion-header>
+
+
+<ion-content >
+  <header-title></header-title>
+  <div class="p-container">
+    <div class="im-wrapper p-container-view">
+      <p class="p-img-top logo-etatmouvement"></p>
+      <form class="form list" [formGroup]="critere">
+        <fieldset>
+          <legend>Informations</legend>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date debut</ion-label>
+            <ion-datetime formControlName="date1" displayFormat="DDDD DD MMMM YYYY" (ionChange)="changedatedeb()" doneText="Choisir" cancelText="Annuler" ></ion-datetime>
+          </ion-item>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px ">
+            <ion-label  floating>Date Fin</ion-label>
+            <ion-datetime formControlName="date2" (ionChange)="changefin()" displayFormat="DDDD DD MMMM YYYY" doneText="Choisir" cancelText="Annuler" [min]="minDate"></ion-datetime>
+          </ion-item>
+          <ion-item style="border-bottom: 2px solid #fd971f;border-radius: 5px;">
+            <ion-label floating="" style="color:#444 !important;font-family: ubuntuMono !important;">Type Mouvement</ion-label>
+            <ion-select style="border-top: none" interface="popover" formControlName="bank" (ionChange)="changebank()">
+              <ion-option value="tous" selected>Tous</ion-option>
+              <ion-option value="cbao">CBAO</ion-option>
+              <ion-option value="SGBS">SGBS</ion-option>
+              <ion-option value="ECOBANK">ECOBANK</ion-option>
+              <ion-option value="ATPS">ATPS</ion-option>
+              <ion-option value="UBA">UBA</ion-option>
+              <ion-option value="CMS">CMS</ion-option>
+              <ion-option value="BSIC">BSIC</ion-option>
+              <ion-option value="BASN">BASN</ion-option>
+              <ion-option value="CIOS">CIOS</ion-option>
+              <ion-option value="WU">WU</ion-option>
+              <ion-option value="MG">MG</ion-option>
+              <ion-option value="MEX">MEX</ion-option>
+              <ion-option value="POSTE">POSTE</ion-option>
+              <ion-option value="BOA">BOA</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <button style="margin-top: 10px" (click)="listermvt()" [disabled]="critere.invalid" class="p-btn p-btn-jaune button button-small right-buttons">
+            Afficher
+          </button>
+        </fieldset>
+      </form>
+
+
+      <div class="p-span-tab p-span-tab-5-0" *ngIf="showdetails">
+        <div class="button-bar">
+          <span class="p-span-tab-th">Date</span>
+          <span class="p-span-tab-th">Mnt versé</span>
+          <span class="p-span-tab-th">Plf Avt</span>
+          <span class="p-span-tab-th">Plf Apres</span>
+          <span class="p-span-tab-th">Details</span>
+        </div>
+          <div class="button-bar" *ngFor="let etat of operations">
+          <span class="p-span-tab-td">{{etat.Date}}</span>
+          <span class="p-span-tab-td">{{etat.Montant|millier}}</span>
+          <span class="p-span-tab-td">{{etat.Plfav|millier}}</span>
+          <span class="p-span-tab-td">{{etat.Plfap|millier}}</span>
+          <span class="p-span-tab-td" (click)="getdetails(etat)"><ion-icon color="proximo" name="md-eye"></ion-icon></span>
+        </div>
+        <br>
+      </div>
+    </div>
+   <scroll></scroll>
+  </div>
+
+</ion-content>

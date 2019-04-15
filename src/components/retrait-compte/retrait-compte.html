@@ -1,0 +1,26 @@
+<form class="list form" name="formrecharge" [formGroup]="retraitForm" >
+  <fieldset>
+    <legend>Informations</legend>
+    <div class="field">
+      <input type="tel" maxlength="12" (input)="changetel()" (blur)="blurtel()"  (focus)="focustel()" formControlName="codevalidation"  style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="telben" placeholder="Téléphone">
+      <label for="telben" style="width: 100% !important;">Telephone</label>
+    </div>
+    <div class="field">
+      <input type="tel" (blur)="changemontant()" formControlName="montant" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="adresseben" placeholder="Montant">
+      <label for="adresseben" style="width: 100% !important;">Montant</label>
+    </div>
+    <div class="field">
+      <input type="tel" style="border: none; border-bottom: 2px solid #fd971f; width: 100% !important;" name="fullname" id="reference" formControlName="numtrx" placeholder="Id Référence">
+      <label for="reference" style="width: 100% !important;">Id Référence</label>
+    </div>
+
+    <div class="p-button-group">
+      <button  (click)="validerRetrait()" [disabled]="retraitForm.invalid" class="p-btn p-btn-vert button button-small right-buttons">
+        Valider
+      </button>
+      <button class="p-btn p-btn-gris button button-small right-buttons" (click)="retraitForm.reset();">
+        Réinitialiser
+      </button>
+    </div>
+  </fieldset>
+</form>

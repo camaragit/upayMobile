@@ -1,3 +1,4 @@
+@import "../../node_modules/ionic2-auto-complete/auto-complete";
 // http://ionicframework.com/docs/theming/
 
 
@@ -14,3 +15,136 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.p-header,th{font-style:normal}@font-face{font-family:ubuntuMono;src:url(../assets/police/ufonts.com_century-gothic.ttf) format("truetype")}@font-face{font-family:firaMono;src:url(../assets/police/firaMono/UbuntuMono-R.ttf) format("truetype")}body{font-family:ubuntuMono,sans-serif;font-size:11px}.p-footer,.p-footer a,button,h1,h2,h3,h4,input,label,legend,option,p,select,span,table{font-family:ubuntuMono}a{text-decoration:none}.scroll-content{background:url(../assets/imgs/Background-01.png) center center no-repeat fixed;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}.p-footer a{margin:auto}.form:after,.p-container-view:after,.p-container:after{content:"";display:table;clear:both}h3{font-size:14px}.light{background-color:#fd971f;height:40px}.proxi-releve .info,.proxi-releve .titre{font-size:11px;font-family:"Courier New"}.p-header{text-transform:uppercase}.p-header h3,.p-header p{font-size:11px}.proxi-releve{display:inline-block;width:100%;margin:10px 0 -13px}.proxi-releve p{width:50%;display:inline-block}.proxi-releve .titre{width:40%;font-weight:700}.proxi-releve .info{padding-left:5px}@media (min--moz-device-pixel-ratio:1.5),(-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5),(min-resolution:144dpi),(min-resolution:1.5dppx){.bar{background-image:none}}.list .item{min-height:60px}.light-list{margin-top:-30px;background-color:#fff}.menu .bar.bar-header.expanded{min-height:50px;color:#000}.menu .bar.bar-header.expanded h1{border-bottom:1px solid #fd971f;width:100%;padding-left:10px;font-family:'Ubuntu Mono';font-weight:700;font-size:30px;color:#fd971f;margin:20px 15px 15px}.has-expanded-header{top:101px!important}.bar{border-top:inherit}.p-menu-item h2{padding-top:12px;margin-left:-30px;font-size:14px}.p-menu-item img{border:inherit}.p-menu-item .separateur-menu{border-top:1px solid #fd971f;margin-left:15px;margin-right:15px;margin-bottom:0}.p-menu-item .title-deconnexion,.p-menu-item .title-operations{height:30px;margin-left:20px;margin-right:25px;font-weight:700;font-size:16px;color:#000}.p-menu-item .title-operations{padding-top:20px}.p-menu-item .title-deconnexion{margin-bottom:0;padding-top:0}.menu-animated{-webkit-transition:-webkit-transform .4s ease;-moz-transition:-moz-transition .4s ease;-ms-transition:-ms-transition .4s ease;-o-transition:-o-transition .4s ease;transition:transform .4s ease}.bar .button.button-clear,i.ion-ios-arrow-back{-webkit-animation:spincomplet .7s;-o-animation:spincomplet .7s;animation:spincomplet .7s}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(180deg)}}@keyframes spincomplet{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes spinreverse{0%{transform:rotate(0)}100%{transform:rotate(-180deg)}}.p-view{display:inline;display:flex;justify-content:center;align-items:center;min-height:100vh}.p-view-connexion{width:100%}.p-img-connexion{height:190px;display:block;width:190px;margin:0 auto}.p-translate{position:absolute;top:5px;right:20px}.p-translate span{color:#000;font-size:10px;text-decoration:underline;text-transform:none}.p-translate .p-translate-fr{margin-right:15px}.p-box a{width:48%;display:inline-block;border-bottom:2px solid #ffc000;margin:0 4px 5px 0;padding:2px 0;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}.p-box .p-box-img{height:110px;width:110px;margin:0 auto;display:block}.p-box .p-box-title{color:#000;text-align:center;display:block;width:100%;font-size:11px}.item-thumbnail-left .item-content .item-image,.item-thumbnail-left .item-content>img:first-child,.item-thumbnail-left .item-image,.item-thumbnail-left>img:first-child{border-radius:0;width:12%;height:40%}div.title.title-center.header-item{font-family:ubuntuMono;font-weight:700;color:#fd971f;text-transform:uppercase;float:left;font-size:15px;margin-left:-50%;padding-right:4px;padding-left:3px}.p-btn,.p-span-tab .p-btn-jaune{color:#fff}.p-img-top{position:absolute;right:10px;float:right;border-radius:5px;bottom:0}.logo-ria{top:7px;height:35px;width:60px;background-size:60px;background-image:url(../assets/imgs/Icon-26.png)}.logo-joni,.logo-proxicash{width:100px;background-size:100px}.logo-proxicash{top:10px;height:30px;background-image:url(../assets/imgs/Icon-16.png)}.logo-joni{top:8px;height:40px;background-image:url(../assets/imgs/Icon-19.png)}.logo-senelec1,.logo-sonatel{height:39px;width:43px;background-size:50px}.logo-senelec1{top:4px;background-repeat:no-repeat;background-image:url(../assets/imgs/logo_senelec1.png)}.logo-sonatel{top:19px;background-image:url(../assets/imgs/sonatel.png)}.logo-woyofal1{top:2px;height:40px;width:65px;background-size:65px;background-image:url(../assets/imgs/Icon-23.png)}.logo-delta{top:2px;height:42px;width:42px;background-size:42px;background-image:url(../assets/imgs/Icon-29.png)}.logo-sde1{top:2px;height:47px;width:45px;background-size:45px;background-image:url(../assets/imgs/Icon-28.png)}.logo-expresso{top:1px;height:50px;width:80px;background-size:80px;background-image:url(../assets/imgs/Icon-22.png)}.logo-wizall{top:6px;height:40px;width:80px;background-repeat:no-repeat;background-size:80px;background-image:url(../assets/imgs/logo_wizall.jpg)}.logo-postcash{top:3px;height:45px;width:45px;background-size:45px;background-image:url(../assets/imgs/postecash.png);background-repeat:no-repeat}.logo-orange{top:1px;height:45px;width:45px;background-size:45px;background-image:url(../assets/imgs/orange.png)}.logo-rapido{top:15px;height:45px;width:45px;background-size:45px;background-image:url(../assets/imgs/rapido.png);background-repeat:no-repeat}.logo-tigo{top:0;height:45px;width:50px;background-size:50px;background-image:url(../assets/imgs/tigo.png)}.logo-orangemoney{top:10px;height:30px;width:80px;background-size:80px;background-image:url(../assets/imgs/Icon-20.png)}.logo-tigocash{top:0;height:48px;width:70px;background-size:70px;background-image:url(../assets/imgs/Icon-27.png)}.logo-etatplafond{top:15px;height:60px;width:60px;background-size:60px;background-image:url(../assets/imgs/Petite-Icon-EtatPlafond-01.png)}.item-select select,.item-select:after{position:inherit}.p-service .p-service-img,.p-service a{border:none}.p-service .p-service-img{height:150px;width:150px;margin:0 auto;display:block}.p-header-title{margin-bottom:10px;height:50px;border-bottom:2px solid #fd971f;padding-top:5px;z-index:2;font-size:1.3em;width:100%;box-shadow:0 2px 5px 0 rgba(0,0,0,.26)}.p-header-title h3{margin-top:8px;padding-left:10px;font-family:ubuntuMono;font-size:13px;overflow:hidden}.p-header-title .p-header-img-service{float:left;height:30px;width:30px;margin-left:5px}.td-no-color{border:none}table{margin-top:5px;width:100%}table,td,th{border-collapse:collapse;padding:5px;font-family:ubuntuMono,sans-serif}.p-btn,.p-legend span,.p-nav-bar-info,.p-recu .p-recu-title,.p-recu .p-recu-title-lf,.p-span-tab span{font-family:ubuntuMono}td,th{height:30px;margin-left:2px;border:2px solid rgba(204,204,204,.5)}th{font-weight:700;background-color:rgba(221,221,221,.3);font-size:10px}.p-container-view .p-label-checkbox{width:100%;margin:0 auto}.p-container-view .p-checkbox{border:inherit;display:block;margin:0 auto;height:22px;width:100%;padding-left:0}.p-span-tab-1-1 .p-span-tab-ckb{width:10%}.p-span-tab-1-1 .p-span-tab-td,.p-span-tab-1-1 .p-span-tab-th{width:90%}.p-span-tab-2-1 .p-span-tab-ckb{width:10%}.p-span-tab-2-1 .p-span-tab-td,.p-span-tab-2-1 .p-span-tab-th{width:45%}.p-span-tab-3-1 .p-span-tab-ckb{width:10%}.p-span-tab-3-1 .p-span-tab-td,.p-span-tab-3-1 .p-span-tab-th{width:30%}.p-span-tab-4-1 .p-span-tab-ckb{width:10%}.p-span-tab-4-1 .p-span-tab-td,.p-span-tab-4-1 .p-span-tab-th{width:22.5%}.p-span-tab-5-1 .p-span-tab-ckb{width:10%}.p-span-tab-5-1 .p-span-tab-td,.p-span-tab-5-1 .p-span-tab-th{width:18%}.p-span-tab-6-1 .p-span-tab-ckb{width:10%}.p-span-tab-6-1 .p-span-tab-td,.p-span-tab-6-1 .p-span-tab-th{width:15%}.p-span-tab-1-0 .p-span-tab-td,.p-span-tab-1-0 .p-span-tab-th{width:100%}.p-span-tab-2-0 .p-span-tab-td,.p-span-tab-2-0 .p-span-tab-th{width:50%}.p-span-tab-3-0 .p-span-tab-td,.p-span-tab-3-0 .p-span-tab-th{width:33.33333%}.p-span-tab-4-0 .p-span-tab-td,.p-span-tab-4-0 .p-span-tab-th{width:25%}.p-span-tab-5-0 .p-span-tab-td,.p-span-tab-5-0 .p-span-tab-th{width:20%}.p-span-tab-6-0 .p-span-tab-td,.p-span-tab-6-0 .p-span-tab-th{width:16.66667%}.p-span-tab{margin-top:15px;margin-bottom:15px}.p-span-tab .item-radio input:checked+.radio-content .item-content{background-color:inherit}.p-span-tab .item{min-height:inherit}.p-span-tab .item-radio{border:1px solid red;margin:2px;height:30px;width:60px}.p-span-tab .radio-icon{margin-top:-15px}.p-span-tab .radio-content{background-color:inherit;font-size:10px}.p-span-tab span{margin-right:4px;border-radius:inherit;text-align:center;background-color:#ccc;margin-bottom:4px;overflow:auto}.p-span-tab span:last-child{margin-right:0}.p-span-tab .p-span-tab-th{background-color:#fd971f;color:#fff;font-weight:700}.p-span-tab .p-span-tab-title{background-color:inherit}.p-btn-jaune,.p-span-tab .p-btn-jaune{background-color:#fd971f}.p-btn{width:85px;height:35px;float:right;padding:5px 7px 7px;margin:auto 5px auto auto;border-radius:4px;text-transform:capitalize;font-size:11px}.p-btn-vert{background-color:#206f3e}.p-btn-gris{background-color:#a1a1a3}.p-btn-red{background-color:#a91212}.p-btn-reinit{background-color:#4d4d4d}.p-btn-reinit:hover{color:#fd971f}.bar .button.button-clear,i.ion-chevron-left:before,i.ion-ios-arrow-back{color:#ffc000;font-size:20px!important}i.radio-icon{color:#fd971f}.bar .button.button-clear .icon:before,.bar .button.button-clear.icon-left:before,.bar .button.button-clear.icon-right:before,.bar .button.button-clear.icon:before,.bar button.button-clear .icon:before,.bar button.button-clear.icon-left:before,.bar button.button-clear.icon-right:before,.bar button.button-clear.icon:before{font-size:26px;line-height:32px}.p-icon-input{font-size:24px;position:relative;top:-10px;right:0;float:right;padding-bottom:0;margin-bottom:-20px;border:1px solid #fff;background-color:inherit}.input-label,button,input,label,select,textarea{font-size:12px}.form{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;min-height:100px}.form .p-input-border-bottom{width:100%;border:inherit;margin-bottom:0;border-radius:inherit;border-bottom:2px solid #fd971f}.p-border-bottom{height:10px;margin-top:-8px;border:1px solid silver;border-top:inherit;border-left:inherit;border-right:inherit;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:30%;margin-left:2.5px}.list .item.p-label-border-inherit,.p-label-border-inherit{border-bottom:inherit}.p-label-select{margin-bottom:-20px}.p-text-align-right{text-align:right}.item.item-floating-label{width:100%}.p-container-view .p-container-view legend{font-size:12px;font-weight:700;padding-left:2px;font-family:ubuntuMono;width:70%;border:1px solid transparent;text-transform:capitalize}.p-container-view label{width:35%;display:inline-block;float:left;text-align:left;padding-left:2px;margin-top:5px;color:#444}.p-container-view input{border:1px solid #fd971f;height:30px;width:64%;margin-bottom:15px;padding-left:8px}.checkbox,.p-legend{padding:0}.p-container-view select{border:1px solid #fd971f;height:30px;border-radius:4px;width:64%;margin-bottom:15px}.p-legend{float:right;clear:both;width:100%;margin:0 0 -30px;text-align:right}.p-legend span{font-size:14px;color:#ccc;margin:2px 0;border-bottom:2px solid #fd971f}.p-group-button{margin-top:10px}.checkbox input:checked+.checkbox-icon:before,.checkbox input:checked:before{background:#fd971f;border-color:#fd971f}.p-recu{margin-top:-140px}.p-recu .p-recu-content p{display:inline-block;width:58%;margin-bottom:2px;color:#000}.p-recu .p-recu-content .p-recu-lib{width:32%;vertical-align:top}.p-recu .p-recu-title{text-align:center;font-size:12px}.p-recu .p-recu-title-lf{text-align:left;font-size:12px}.p-recu th{background-color:inherit;font-weight:400;border:inherit}.item-avatar>img:first-child{max-height:35px;max-width:35px}#proxi-header-logo .p-header-img{width:90px;margin-right:0;margin-bottom:20px;background-size:90px;position:absolute;top:15px}@media only screen and (min-width:600px){#proxi-header-logo .p-header-img{left:5%}}@media only screen and (max-width:500px){#proxi-header-logo .p-header-img{left:14%}}@media only screen and (min-width:500px) and (max-width:1024px) and (orientation:landscape){#proxi-header-logo .p-header-img{left:7%}}.p-nav-bar-info{position:absolute;padding-right:4px;border-radius:3px;font-weight:700;width:165px;text-align:right;right:10px;top:-25px;display:inline-block;font-size:10px;margin-top:14px}.p-nav-bar-info small{font-size:8px}.form-errors{margin: 5px 0}.form-error {padding: 2px 0 2px 16px; color: red; } .erreur{color: red; text-align: center; font-size: medium;} .error{ color: #590000; border-radius: 15px;padding: 15px; text-align: center;font-size: 15px;} .confirm{ background-color: #c8ffff; border-radius: 15px; border:1px solid darkgreen; padding: 5px; text-align: center; font-size: medium } .imagepopup{ margin: 0 auto; width: 53px; height: 55px; display: block; background-size:53px;} .item-icon-left ion-spinner { float: left; margin-left: -3.2em; margin-right: 1em; margin-top: -0.2em;}.spinner svg { width: 28px;height: 28px; stroke: #fd971f; fill: #fd971f;}.login-form .item { border-width: 0;overflow: visible; text-overflow: inherit; white-space: normal;} .login-form .item-input {margin-top: 24px;  border-width: 0 0 1px 0;} .login-form .item-input>input+button.activated {opacity: 1;}.login-form .item-input>input+button>i { font-size: 24px;}.modal{ background-color:Window; } img { max-width: 100%;  max-height: 100%;} .my-custom-popup .popup{width: 95%;}
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  font-family:ubuntuMono;
+}
+.card-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  font-family:ubuntuMono;
+}
+.item-content {
+  background-color:transparent;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+ion-scroll {
+  white-space: nowrap;
+  height: 200px;
+}
+.footertext{
+  font-family: ubuntuMono;
+  font-size: 10px;
+}
+/*
+fieldset{border-radius:11px;margin-top: 10px;border-color:#999900}
+*/
+
+/*fieldset{
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+}*/
+legend{font-size:12px;font-weight:700;padding-left:2px;font-family:ubuntuMono;width:70%;border:1px solid transparent;text-transform:capitalize}
+fieldset{
+  border-radius: 5px
+}fieldset input,fieldset label{border:inherit}
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+}
+
+
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+input {
+  font-size: 1.5em;
+  border: 0;
+  border-bottom: 1px solid #fd971f;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: text;
+}
+.back-button-md,
+.back-button-ios {
+  color: #fd971f ;
+}
+input:focus {
+  outline: 0;
+  border-bottom: 1px solid #fd971f;
+}
+
+
+/*label {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}*/
+/**
+* Translate down and scale the label up to cover the placeholder,
+* when following an input (with placeholder-shown support).
+* Also make sure the label is only on one row, at max 2/3rds of the
+* field—to make sure it scales properly and doesn't wrap.
+*/
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+/**
+* By default, the placeholder should be transparent. Also, it should
+* inherit the transition.
+*/
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+/**
+* Show the placeholder when the input is focused.
+*/
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when
+* there's something in the input at all.
+*/
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+}
+.select-md .select-icon .select-icon-inner{border-top: none;}
+
+.logo-emoney{top:3px;height:45px;width:14%;background-repeat:no-repeat;background-size:44px;background-image:url(../assets/imgs/emoney.png)}
+
+.success{ color: green; border-radius: 15px;padding: 15px; text-align: center;font-size: 15px;}
+.details{ color: #111111; border-radius: 15px;padding: 15px; text-align: center;font-size: 12px;}
+.success > img{width: 70% !important; margin-top: -30px !important;}
+.details > img{width: 70% !important; margin-top: -30px !important;}
+
+.searchbar-input{
+  border:transparent !important;
+  border-bottom: solid #fd971f !important;
+  width: 100% !important;
+}

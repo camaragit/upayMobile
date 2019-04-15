@@ -1,0 +1,63 @@
+<!-- Reçu encaissement Woyofal -->
+<div class="p-recu padding" style="margin-top: -30px;">
+  <div align="left" class="col col-100">
+    <div class="p-recu-content">
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf" *ngIf="!glb.recu.duplicat">Recu de transaction Woyofal</div>
+      <div class="p-recu-title-lf" *ngIf="glb.recu.duplicat">Duplicatat recu de transaction Woyofal</div>
+      <br>
+      <div class="p-recu-title-lf">Copie Client</div>
+      <p class="p-recu-lib">Oper</p><p>:  WOYOFAL</p>
+      <span><p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p></span>
+      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Compteur</p><p>: {{glb.recu.IdClient}} </p><br>
+      <div *ngIf="glb.recu.telClient"><p class="p-recu-lib">Tel</p><p>: {{glb.recu.telClient}} </p><br></div>
+      <hr>
+      <span *ngIf="glb.recu.Token2 && glb.recu.Token2!=''"><p class="p-recu-lib" >Sts1</p><p>:{{glb.recu.Token2}}</p></span>
+      <span *ngIf="glb.recu.Token3 && glb.recu.Token3!=''"><p class="p-recu-lib" >Sts2</p><p>:{{glb.recu.Token3}}</p></span>
+      <p class="p-recu-lib">Code</p><p>: {{glb.recu.Token1}} </p><br>
+      <div *ngIf="glb.recu.Energy"><p class="p-recu-lib">Energie</p><p>:{{glb.recu.Energy}}  </p><br></div>
+      <div *ngIf="glb.recu.mntFact"> <p class="p-recu-lib">Montant</p><p>: {{glb.recu.mntFact}} </p><br></div>
+      <div *ngIf="glb.recu.mntFrais"> <p class="p-recu-lib">Frais</p><p>: {{glb.recu.mntFrais}} </p><br></div>
+      <hr>
+      <p class="p-recu-lib">Total</p><p>: {{glb.recu.mntTotal}} </p>
+      <span>Proximo vous remercie</span><br>
+      <span>&lt;Plus d'info au 33 869 31 22&gt;</span><br><br>
+      <hr style="margin-bottom: -5px;"><hr><br>
+
+      <!-- Copie reception -->
+      <div class="p-recu-title">Proximo</div>
+      <div class="p-recu-title-lf" *ngIf="!glb.recu.duplicat">Recu de transaction Woyofal</div>
+      <div class="p-recu-title-lf" *ngIf="glb.recu.duplicat">Duplicatat recu de transaction Woyofal</div>      <br>
+      <div class="p-recu-title-lf">Copie Agence</div>
+      <p class="p-recu-lib">Oper</p><p>:  WOYOFAL</p>
+      <span ><p class="p-recu-lib">Date</p><p>: {{glb.recu.dtTrx}}</p></span>      <p class="p-recu-lib">Agence</p><p>: {{glb.recu.agence}} </p><br>
+      <p class="p-recu-lib">Guichet</p><p>: {{glb.recu.guichet}} </p><br>
+      <p class="p-recu-lib">Compteur</p><p>: {{glb.recu.IdClient}} </p><br>
+      <div *ngIf="glb.recu.telClient"><p class="p-recu-lib">Tel</p><p>: {{glb.recu.telClient}} </p><br></div>
+
+      <hr>
+      <div *ngIf="glb.recu.Token2 && glb.recu.Token2!=''"><p class="p-recu-lib" >Sts1</p><p>{{glb.recu.Token2}}  </p></div>
+      <div *ngIf="glb.recu.Token3 && glb.recu.Token3!=''"><p class="p-recu-lib" >Sts1</p><p>{{glb.recu.Token3}}  </p></div>
+      <p class="p-recu-lib">Code</p><p>: {{glb.recu.Token1}} </p><br>
+      <div *ngIf="glb.recu.Energy"> <p class="p-recu-lib">Energie</p><p>:{{glb.recu.Energy}}  </p><br></div>
+      <div *ngIf="glb.recu.mntFact"> <p class="p-recu-lib">Montant</p><p>: {{glb.recu.mntFact}} </p><br></div>
+      <div *ngIf="glb.recu.mntFrais"> <p class="p-recu-lib">Frais</p><p>: {{glb.recu.mntFrais}} </p><br></div>
+      <hr>
+      <p class="p-recu-lib">Total</p><p>:{{glb.recu.mntTotal}}</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="im-wrapper">
+  <button  class="p-btn p-btn-jaune button button-small right-buttons"  (click)="imprimer()">
+    Imprimer
+  </button>
+</div>
+
+
+
